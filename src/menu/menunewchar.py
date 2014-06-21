@@ -75,7 +75,7 @@ class menuNewCharacter():
         self.x = 10
         self.y = 10
 
-        self.backgroundImage = pygame.image.load(g.dataPath + '/gui/bg_menu.png')
+        self.backgroundImage = pygame.image.load(g.dataPath + '/gui/bg_characterselection.png')
 
         # class selection
         self.classIndex = 0
