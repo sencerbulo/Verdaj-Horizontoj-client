@@ -1,0 +1,268 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-06-21 15:14-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: gamelogic.py:45
+msgid "Usage: !playername (message)"
+msgstr ""
+
+#: gamelogic.py:70 gamelogic.py:110
+msgid "Social Commands:"
+msgstr ""
+
+#: gamelogic.py:71
+msgid "  'msghere = Broadcast Message"
+msgstr ""
+
+#: gamelogic.py:72
+msgid "  -msghere = Emote Message"
+msgstr ""
+
+#: gamelogic.py:73 gamelogic.py:113
+msgid "  !namehere msghere = Player Message"
+msgstr ""
+
+#: gamelogic.py:74
+msgid ""
+"Available Commands: /help, /info, /who, /fps, /inv, /stats, /train, /trade, /"
+"party, /join, /leave, /resetui"
+msgstr ""
+
+#: gamelogic.py:78 gamelogic.py:82
+msgid "Usage: /info (name)"
+msgstr ""
+
+#: gamelogic.py:107 gamelogic.py:118 gamelogic.py:138 gamelogic.py:148
+#: gamelogic.py:155 gamelogic.py:171
+msgid "You need to be a high enough staff member to do this!"
+msgstr ""
+
+#: gamelogic.py:111
+msgid "  \"msghere = Global Admin Message"
+msgstr ""
+
+#: gamelogic.py:112
+msgid "  =msghere  = Private Admin Message"
+msgstr ""
+
+#: gamelogic.py:114
+msgid ""
+"Available Commands: /admin, /loc, /mapeditor, /warpmeto, /warptome, /"
+"warpto, /setsprite, /giveitem, /mapreport, /kick, /ban, /edititem, /"
+"respawn, /editnpc, /motd, /editshop, /editspell, /debug"
+msgstr ""
+
+#: gamelogic.py:122 gamelogic.py:126
+msgid "Usage: /kick (name)"
+msgstr ""
+
+#: gamelogic.py:159 gamelogic.py:163
+msgid "Usage: /warpmeto (name)"
+msgstr ""
+
+#: gamelogic.py:175 gamelogic.py:179
+msgid "Usage: /warptome (name)"
+msgstr ""
+
+#: gamelogic.py:558
+msgid "Not enough MP to cast "
+msgstr ""
+
+#: gamelogic.py:571
+msgid "Cannot cast while walking!"
+msgstr ""
+
+#: gamelogic.py:574
+msgid "No spell here."
+msgstr ""
+
+#: gui/gui_itemeditor.py:39
+msgid "Open item"
+msgstr ""
+
+#: gui/gui_itemeditor.py:88
+msgid "Durability: 0"
+msgstr ""
+
+#: gui/gui_itemeditor.py:173
+msgid "Item Editor"
+msgstr ""
+
+#: gui/gui_itemeditor.py:179
+msgid "Open item..."
+msgstr ""
+
+#: gui/gui_itemeditor.py:184
+msgid "Item Name:"
+msgstr ""
+
+#: gui/gui.py:30
+msgid "Exit Game"
+msgstr ""
+
+#: gui/gui.py:35
+msgid "Are you sure you want to quit?"
+msgstr ""
+
+#: gui/gui.py:44
+msgid "Quit"
+msgstr ""
+
+#: gui/gui.py:48 gui/gui_spelleditor.py:43
+msgid "Cancel"
+msgstr ""
+
+#: gui/gui.py:173
+msgid "Stats"
+msgstr ""
+
+#: gui/gui.py:176 gui/gui.py:205
+msgid "Inventory"
+msgstr ""
+
+#: gui/gui.py:181 gui/gui.py:209
+msgid "Spellbook"
+msgstr ""
+
+#: gui/gui.py:186 gui/gui.py:214
+msgid "Settings"
+msgstr ""
+
+#: gui/gui.py:808
+msgid " strength"
+msgstr ""
+
+#: gui/gui.py:809
+msgid " durability"
+msgstr ""
+
+#: gui/gui.py:858
+msgid "Amount: "
+msgstr ""
+
+#: gui/gui.py:979
+msgid " Mana"
+msgstr ""
+
+#: gui/gui_spelleditor.py:21
+msgid "Open Spell"
+msgstr ""
+
+#: gui/gui_spelleditor.py:26
+msgid "Select a spell:"
+msgstr ""
+
+#: gui/gui_spelleditor.py:39
+msgid "Open spell"
+msgstr ""
+
+#: gui/gui_spelleditor.py:88
+msgid "Item: 0"
+msgstr ""
+
+#: gui/gui_spelleditor.py:100
+msgid "Item Value: 0"
+msgstr ""
+
+#: gui/gui_spelleditor.py:112
+msgid "Item Value: "
+msgstr ""
+
+#: gui/gui_spelleditor.py:116
+msgid "Item: "
+msgstr ""
+
+#: gui/gui_spelleditor.py:119
+msgid "Not a valid item num!"
+msgstr ""
+
+#: gui/gui_spelleditor.py:128
+msgid "Vital Mod: 0"
+msgstr ""
+
+#: gui/gui_spelleditor.py:137
+msgid "Vital Mod: "
+msgstr ""
+
+#: gui/gui_spelleditor.py:161
+msgid "Spell Editor"
+msgstr ""
+
+#: menu/menuchar.py:46 menu/menunewchar.py:47
+msgid "Previous"
+msgstr ""
+
+#: menu/menuchar.py:50 menu/menunewchar.py:51
+msgid "Next"
+msgstr ""
+
+#: menu/menuchar.py:56
+msgid "Use Character"
+msgstr ""
+
+#: menu/menuchar.py:66
+msgid "Delete Character"
+msgstr ""
+
+#: menu/menuchar.py:152
+msgid "Level "
+msgstr ""
+
+#: menu/menuchar.py:156
+msgid "Empty"
+msgstr ""
+
+#: menu/menuchar.py:157
+msgid "Create a new character!"
+msgstr ""
+
+#: menu/menulogin.py:27
+msgid "Username"
+msgstr ""
+
+#: menu/menulogin.py:36
+msgid "Login"
+msgstr ""
+
+#: menu/menulogin.py:44
+msgid "Register"
+msgstr ""
+
+#: menu/menunewchar.py:35
+msgid "Character Name"
+msgstr ""
+
+#: menu/menunewchar.py:43
+msgid "CLASS NAME"
+msgstr ""
+
+#: menu/menunewchar.py:57
+msgid "Create Character"
+msgstr ""
+
+#: menu/menunewchar.py:84
+msgid "Class Statistics"
+msgstr ""
+
+#: menu/menunewchar.py:139
+msgid "The name is not valid! The name may only contain a-z and 0-9."
+msgstr ""
+
+#: menu/menunewchar.py:139
+msgid "An error occured"
+msgstr ""
