@@ -3,6 +3,10 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+# Please leave any / commands in English, until I can locate them in the server and add EO commands.
+# If you'd like, put a comment after these commands with a translation
+# e.g.:
+# msgid "Uzado: /info (nomo)" # info = informaĵo
 #, fuzzy
 msgid ""
 msgstr ""
