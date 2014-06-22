@@ -49,11 +49,11 @@ class newCharControl(gui.Table):
         self.td(self.lblClassName, colspan=3, valign=1)
 
         self.tr()
-        btn = gui.Button(_("Previous"), width=160, height=40, font=HAPPY_FONT_TIME)
+        btn = gui.Button(_("Antauxa"), width=160, height=40, font=HAPPY_FONT_TIME)
         btn.connect(gui.CLICK, btnPrevClass, None)
         self.td(btn)
         self.td(gui.Spacer(300, 160))
-        btn = gui.Button(_("Next"), width=160, height=40, font=HAPPY_FONT_TIME)
+        btn = gui.Button(_("Sekvonta"), width=160, height=40, font=HAPPY_FONT_TIME)
         btn.connect(gui.CLICK, btnNextClass, None)
         self.td(btn)
 
@@ -141,7 +141,7 @@ class menuNewCharacter():
 
         for i in range(len(string)):
             if string[i] not in restricted:
-                alertMessageDialog(msg=_('The name is not valid! The name may only contain a-z and 0-9.'), title=_('An error occured'))
+                alertMessageDialog(msg=_('Malvalida nomo! Nomo devas havi nur [a-z], [A-Z], kaj [0-9].'), title=_('Eraro okazis'))
                 return False
 
         return True
@@ -166,10 +166,10 @@ class menuNewCharacter():
         self.labelMP.setText("MP: " + str(Class[self.classIndex].vital[Vitals.mp]))
         self.labelSP.setText("SP: " + str(Class[self.classIndex].vital[Vitals.sp]))
 
-        self.labelStr.setText("Strength: " + str(Class[self.classIndex].stat[Stats.strength]))
-        self.labelDef.setText("Defense: " + str(Class[self.classIndex].stat[Stats.defense]))
-        self.labelSpd.setText("Speed: " + str(Class[self.classIndex].stat[Stats.speed]))
-        self.labelMag.setText("Magic: " + str(Class[self.classIndex].stat[Stats.magic]))
+        self.labelStr.setText("Forteco: " + str(Class[self.classIndex].stat[Stats.strength]))
+        self.labelDef.setText("Defenso: " + str(Class[self.classIndex].stat[Stats.defense]))
+        self.labelSpd.setText("Rapido: " + str(Class[self.classIndex].stat[Stats.speed]))
+        self.labelMag.setText("Magio: " + str(Class[self.classIndex].stat[Stats.magic]))
 
         self.updateCharSprite(Class[self.classIndex].sprite)
 

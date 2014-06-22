@@ -48,17 +48,17 @@ class characterControl(gui.Table):
         self.td(self.lblPlayerExtra, colspan=3, align=0)
 
         self.tr()
-        btn = gui.Button(_("Previous"), width=160, height=40, font=HAPPY_FONT_TIME)
+        btn = gui.Button(_("Antauxa"), width=160, height=40, font=HAPPY_FONT_TIME)
         btn.connect(gui.CLICK, btnPrevChar, None)
         self.td(btn)
         self.td(gui.Spacer(300, 160))
-        btn = gui.Button(_("Next"), width=160, height=40, font=HAPPY_FONT_TIME)
+        btn = gui.Button(_("Sekvonta"), width=160, height=40, font=HAPPY_FONT_TIME)
         btn.connect(gui.CLICK, btnNextChar, None)
         self.td(btn)
 
         self.tr()
         self.td(gui.Spacer(0, 0))
-        self.btnSelChar = gui.Button(_("Use Character"), width=160, height=30, font=HAPPY_FONT_TIME)
+        self.btnSelChar = gui.Button(_("Uzi rolulon"), width=160, height=30, font=HAPPY_FONT_TIME)
         self.btnSelChar.connect(gui.CLICK, btnUseChar, None)
         self.td(self.btnSelChar)
         self.td(gui.Spacer(0, 0))
@@ -68,7 +68,7 @@ class characterControl(gui.Table):
 
         self.tr()
         self.td(gui.Spacer(0, 0))
-        btn = gui.Button(_("Delete Character"), width=160, height=30, font=HAPPY_FONT_TIME)
+        btn = gui.Button(_("Forigi rolulon"), width=160, height=30, font=HAPPY_FONT_TIME)
         btn.connect(gui.CLICK, btnDelChar, None)
         self.td(btn)
         self.td(gui.Spacer(0, 0))
@@ -154,12 +154,12 @@ class menuCharacters():
 
         if self.charName != "":
             self.charControl.lblPlayerName.set_text(self.charName)
-            self.charControl.lblPlayerExtra.set_text(_("Level ") + str(self.charLevel) + " " + str(self.charClass))
+            self.charControl.lblPlayerExtra.set_text(_("Nivelo ") + str(self.charLevel) + " " + str(self.charClass))
 
         else:
             # the character doesnt exist (it's empty)
             self.charControl.lblPlayerName.set_text(_('Empty'))
-            self.charControl.lblPlayerExtra.set_text(_('Create a new character!'))
+            self.charControl.lblPlayerExtra.set_text(_('Krei novan rolulon!'))
 
             # todo: change btn text
             #self.charControl.btnSelChar.value = 'New Character'

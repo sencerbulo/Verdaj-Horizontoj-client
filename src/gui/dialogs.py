@@ -5,7 +5,7 @@ from constants import *
 def alertMessageDialog(msg='', title=''):
     # show an alert message
     if title is '':
-        title = gui.Label('Alert Message')
+        title = gui.Label('Informa mesagxo')
     else:
         title = gui.Label(title)
 
@@ -23,12 +23,12 @@ def alertMessageDialog(msg='', title=''):
     d = gui.Dialog(title, mainTable)
 
     # handle alert messages differently on some alerts
-    if msg == 'Your account has been created!':
+    if msg == 'Via konto estas kreinta!':
         def btnAccountCreated(btn):
             g.gameEngine.setState(MENU_LOGIN)
             d.close()
 
-        btn = gui.Button('OK', width=120)
+        btn = gui.Button('okej', width=120)
         btn.connect(gui.CLICK, btnAccountCreated, None)
 
     else:
@@ -36,7 +36,7 @@ def alertMessageDialog(msg='', title=''):
         def btnOk(btn):
             d.close()
 
-        btn = gui.Button('OK', width=120)
+        btn = gui.Button('okej', width=120)
         btn.connect(gui.CLICK, btnOk, None)
 
     # add button to alert message

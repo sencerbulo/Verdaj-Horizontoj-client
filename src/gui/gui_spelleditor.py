@@ -18,12 +18,12 @@ class OpenSpellDialog(gui.Dialog):
 
         self._count = 0
 
-        title = gui.Label(_("Open Spell"))
+        title = gui.Label(_("Malfermi ensorcxon"))
 
         t = gui.Table()
 
         t.tr()
-        t.td(gui.Label(_('Select a spell:')), colspan=2)
+        t.td(gui.Label(_('Elekti ensorcxon:')), colspan=2)
 
         t.tr()
         t.td(gui.Spacer(10, 20))
@@ -36,11 +36,11 @@ class OpenSpellDialog(gui.Dialog):
         t.td(gui.Spacer(10, 20))
 
         t.tr()
-        e = gui.Button(_('Open spell'))
+        e = gui.Button(_('Malfermi ensorcxon'))
         e.connect(gui.CLICK, self.openSpell, None)
         t.td(e)
 
-        e = gui.Button(_('Cancel'))
+        e = gui.Button(_('Rezigni'))
         e.connect(gui.CLICK, self.close, None)
         t.td(e)
 
@@ -85,7 +85,7 @@ class DataGiveItem(gui.Table):
         gui.Table.__init__(self, **params)
 
         self.tr()
-        self.lblItemNum = gui.Label(_('Item: 0'), color=UI_FONT_COLOR)
+        self.lblItemNum = gui.Label(_('Ero: 0'), color=UI_FONT_COLOR)
         self.td(self.lblItemNum)
 
         self.tr()
@@ -97,7 +97,7 @@ class DataGiveItem(gui.Table):
         self.td(gui.Spacer(10, 20))
 
         self.tr()
-        self.lblStr = gui.Label(_('Item Value: 0'), color=UI_FONT_COLOR)
+        self.lblStr = gui.Label(_('Valoro de ero: 0'), color=UI_FONT_COLOR)
         self.td(self.lblStr)
 
         self.tr()
@@ -109,14 +109,14 @@ class DataGiveItem(gui.Table):
         self.sliItemNum.max = maxItemNum
 
     def updateLabelStr(self, value):
-        self.lblStr.set_text(_('Item Value: ') + str(value.value))
+        self.lblStr.set_text(_('Valoro de ero: ') + str(value.value))
 
     def updateLabelItemNum(self, value):
         if Item[value.value].name != '':
-            self.lblItemNum.set_text(_('Item: ') + Item[value.value].name)
+            self.lblItemNum.set_text(_('Ero: ') + Item[value.value].name)
 
         else:
-            self.lblItemNum.set_text(_('Not a valid item num!'))
+            self.lblItemNum.set_text(_('Ne estas valida nombro por ero!'))
 
 
 class DataVitalMod(gui.Table):
@@ -125,7 +125,7 @@ class DataVitalMod(gui.Table):
         gui.Table.__init__(self, **params)
 
         self.tr()
-        self.lblVital = gui.Label(_('Vital Mod: 0'), color=UI_FONT_COLOR)
+        self.lblVital = gui.Label(_('Vitala modifado: 0'), color=UI_FONT_COLOR)
         self.td(self.lblVital)
 
         self.tr()
@@ -134,7 +134,7 @@ class DataVitalMod(gui.Table):
         self.td(e)
 
     def updateVitalName(self, value):
-        self.lblVital.set_text(_('Vital Mod: ') + str(value.value))
+        self.lblVital.set_text(_('Vitala modifado: ') + str(value.value))
 
 
 class SpellEditorContainer(gui.Container):
@@ -158,31 +158,31 @@ class SpellEditorContainer(gui.Container):
         self.tTitle = gui.Table(width=272, height=32)
 
         self.tTitle.tr()
-        self.tTitle.td(gui.Label(_("Spell Editor"), name='spellTitle', color=UI_FONT_COLOR))
+        self.tTitle.td(gui.Label(_("Redaktilo de ensorcxoj"), name='spellTitle', color=UI_FONT_COLOR))
 
         # content
         self.tContent = gui.Table(width=272, height=123)
 
         self.tContent.tr()
-        e = gui.Button("Open spell...", width=100)
+        e = gui.Button("Malfermi ensorcxon...", width=100)
         e.connect(gui.CLICK, openSpellDialog.openDialog, None)
         self.tContent.td(e, colspan=2)
 
         self.tContent.tr()
-        self.tContent.td(gui.Label('Spell Name:', color=UI_FONT_COLOR), colspan=2)
+        self.tContent.td(gui.Label('Nomo de ensorcxo:', color=UI_FONT_COLOR), colspan=2)
         self.tContent.tr()
         self.tContent.td(gui.Input('', size=26, name='inpSpellName'), colspan=2, valign=-1)
 
         self.tContent.tr()
-        self.tContent.td(gui.Label('Spell Type:', color=UI_FONT_COLOR))
+        self.tContent.td(gui.Label('Tipo de ensorcxo:', color=UI_FONT_COLOR))
         e = gui.Select(name='selSpellType')
-        e.add('Add HP', 0)
-        e.add('Add MP', 1)
-        e.add('Add SP', 2)
-        e.add('Remove HP', 3)
-        e.add('Remove MP', 4)
-        e.add('Remove SP', 5)
-        e.add('Give item', 6)
+        e.add('Aldoni HP', 0)
+        e.add('Aldoni MP', 1)
+        e.add('Aldoni SP', 2)
+        e.add('Fortiri HP', 3)
+        e.add('Fortiri MP', 4)
+        e.add('Fortiri SP', 5)
+        e.add('Doni eron', 6)
         e.value = 0
         e.connect(gui.CHANGE, self.updateType, None)
         self.tContent.td(e)
@@ -198,11 +198,11 @@ class SpellEditorContainer(gui.Container):
         self.tBottom = gui.Table(width=272, height=200)
 
         self.tBottom.tr()
-        self.saveButton = gui.Button("Add Spell", width=100, height=40)
+        self.saveButton = gui.Button("Aldoni ensorcxon", width=100, height=40)
         self.saveButton .connect(gui.CLICK, self.saveSpell, None)
         self.tBottom.td(self.saveButton)
 
-        e = gui.Button("Cancel", width=100, height=40)
+        e = gui.Button("Rezigni", width=100, height=40)
         e.connect(gui.CLICK, self.cancel, None)
         self.tBottom.td(e)
 
@@ -237,7 +237,7 @@ class SpellEditorContainer(gui.Container):
             self.value['selDataItemVal'].value = int(0 if Spell[spellNum].data2 is None else Spell[spellNum].data2)
 
         # rename save button
-        self.saveButton.value = 'Save Spell'
+        self.saveButton.value = 'Konservi ensorcxon'
 
         # update item num
         self.spellNum = spellNum
@@ -314,7 +314,7 @@ class SpellEditorContainer(gui.Container):
         # reset everything on quit
         self.value['inpItemName'].value = ''
         self.value['selItemType'].value = 0
-        self.saveButton.value = 'Add item'
+        self.saveButton.value = 'Aldoni eron'
 
         # equipment
         self.value['selDataDur'].value = 0

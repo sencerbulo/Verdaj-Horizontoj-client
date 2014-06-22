@@ -42,7 +42,7 @@ def handleMsg(text):
                 g.tcpConn.playerMsg(msg, name)
 
             else:
-                addText(_("Usage: !playername (message)"), alertColor)
+                addText(_("Uzado: !ludantonomo (mesagxo)"), alertColor)
 
             return
 
@@ -67,19 +67,19 @@ def handleMsg(text):
             command = msg.split()
 
             if command[0] == "/help":
-                addText(_("Social Commands:"), helpColor)
-                addText(_("  'msghere = Broadcast Message"), helpColor)
-                addText(_("  -msghere = Emote Message"), helpColor)
-                addText(_("  !namehere msghere = Player Message"), helpColor)
-                addText(_("Available Commands: /help, /info, /who, /fps, /inv, /stats, /train, /trade, /party, /join, /leave, /resetui"), helpColor)
+                addText(_("Socialaj Komandoj:"), helpColor)
+                addText(_("  'Mesagxo = Dissenda mesagxo"), helpColor)
+                addText(_("  -Mesagxo = Emocia mesagxo"), helpColor)
+                addText(_("  !nomo Mesagxo = Ludanto mesagxo"), helpColor)
+                addText(_("Uzeblaj Komandoj: /help, /info, /who, /fps, /inv, /stats, /train, /trade, /party, /join, /leave, /resetui"), helpColor)
 
             if command[0] == "/info":
                 if len(command) <= 1:
-                    addText(_("Usage: /info (name)"), alertColor)
+                    addText(_("Uzado: /info (nomo)"), alertColor)
                     return
 
                 if command[1].isdigit():
-                    addText(_("Usage: /info (name)"), alertColor)
+                    addText(_("Uzado: /info (nomo)"), alertColor)
                     return
 
                 g.tcpConn.sendInfoRequest(command[1])
@@ -104,26 +104,26 @@ def handleMsg(text):
             ''' shows a list of admin commands '''
             if command[0] == "/admin":
                 if getPlayerAccess(g.myIndex) < ADMIN_MONITOR:
-                    addText(_("You need to be a high enough staff member to do this!"), alertColor)
+                    addText(_("Vi devas esti plu alta administranto por fari cxi tiu!"), alertColor)
                     return
 
-                addText(_("Social Commands:"), helpColor)
-                addText(_('  "msghere = Global Admin Message'), helpColor)
-                addText(_("  =msghere  = Private Admin Message"), helpColor)
-                addText(_("  !namehere msghere = Player Message"), helpColor)
+                addText(_("Socialaj Komandoj:"), helpColor)
+                addText(_('  \"mesagxo = Universala mesagxo de administrantoj'), helpColor)
+                addText(_("  =mesagxo  = Privata mesagxo de administrantoj"), helpColor)
+                addText(_("  !nomo mesagxo = Ludanto mesagxo"), helpColor)
                 addText(_("Available Commands: /admin, /loc, /mapeditor, /warpmeto, /warptome, /warpto, /setsprite, /giveitem, /mapreport, /kick, /ban, /edititem, /respawn, /editnpc, /motd, /editshop, /editspell, /debug"), helpColor)
 
             if command[0] == "/kick":
                 if getPlayerAccess(g.myIndex) < ADMIN_MONITOR:
-                    addText(_("You need to be a high enough staff member to do this!"), alertColor)
+                    addText(_("Vi devas esti plu alta administranto por fari cxi tiu!"), alertColor)
                     return
 
                 if len(command) <= 1:
-                    addText(_("Usage: /kick (name)"), alertColor)
+                    addText(_("Uzado: /kick (nomo)"), alertColor)
                     return
 
                 if command[1].isdigit():
-                    addText(_("Usage: /kick (name)"), alertColor)
+                    addText(_("Uzado: /kick (nomo)"), alertColor)
                     return
 
                 # sendKick
@@ -135,7 +135,7 @@ def handleMsg(text):
             ''' displays the current location (x, y, map id) '''
             if command[0] == "/loc":
                 if getPlayerAccess(g.myIndex) < ADMIN_MAPPER:
-                    addText(_("You need to be a high enough staff member to do this!"), alertColor)
+                    addText(_("Vi devas esti plu alta administranto por fari cxi tiu!"), alertColor)
                     return
 
                 g.boolLoc = not g.boolLoc
@@ -145,22 +145,22 @@ def handleMsg(text):
             ''' enables the map editor '''
             if command[0] == "/mapeditor":
                 if getPlayerAccess(g.myIndex) < ADMIN_MAPPER:
-                    addText(_("You need to be a high enough staff member to do this!"), alertColor)
+                    addText(_("Vi devas esti plu alta administranto por fari cxi tiu!"), alertColor)
                     return
 
                 g.tcpConn.sendRequestEditMap()
 
             if command[0] == "/warpmeto":
                 if getPlayerAccess(g.myIndex) < ADMIN_MAPPER:
-                    addText(_("You need to be a high enough staff member to do this!"), alertColor)
+                    addText(_("Vi devas esti plu alta administranto por fari cxi tiu!"), alertColor)
                     return
 
                 if len(command) <= 1:
-                    addText(_("Usage: /warpmeto (name)"), alertColor)
+                    addText(_("Uzado: /warpmeto (nomo)"), alertColor)
                     return
 
                 if command[1].isdigit():
-                    addText(_("Usage: /warpmeto (name)"), alertColor)
+                    addText(_("Uzado: /warpmeto (nomo)"), alertColor)
                     return
 
                 playerName = command[1]
@@ -168,15 +168,15 @@ def handleMsg(text):
 
             if command[0] == "/warptome":
                 if getPlayerAccess(g.myIndex) < ADMIN_MAPPER:
-                    addText(_("You need to be a high enough staff member to do this!"), alertColor)
+                    addText(_("Vi devas esti plu alta administranto por fari cxi tiu!"), alertColor)
                     return
 
                 if len(command) <= 1:
-                    addText(_("Usage: /warptome (name)"), alertColor)
+                    addText(_("Uzado: /warptome (nomo)"), alertColor)
                     return
 
                 if command[1].isdigit():
-                    addText(_("Usage: /warptome (name)"), alertColor)
+                    addText(_("Uzado: /warptome (nomo)"), alertColor)
                     return
 
                 playerName = command[1]
@@ -184,15 +184,15 @@ def handleMsg(text):
 
             if command[0] == "/warpto":
                 if getPlayerAccess(g.myIndex) < ADMIN_MAPPER:
-                    addText("You need to be a high enough staff member to do this!", alertColor)
+                    addText("Vi devas esti plu alta administranto por fari cxi tiu!", alertColor)
                     return
 
                 if len(command) <= 1:
-                    addText("Usage: /warpto (map #)", alertColor)
+                    addText("Uzado: /warpto (mapo #)", alertColor)
                     return
 
                 if not command[1].isdigit():
-                    addText("Usage: /warpto (map #)", alertColor)
+                    addText("Uzado: /warpto (mapo #)", alertColor)
                     return
 
                 n = int(command[1])
@@ -201,34 +201,34 @@ def handleMsg(text):
                     # warpTo
                     g.tcpConn.warpTo(n)
                 else:
-                    addText("Invalid map number.", textColor.RED)
+                    addText("Malvalida mapo nombro.", textColor.RED)
 
             ''' sets the admin sprite '''
             if command[0] == "/setsprite":
                 if getPlayerAccess(g.myIndex) < ADMIN_MAPPER:
-                    addText("You need to be a high enough staff member to do this!", alertColor)
+                    addText("Vi devas esti plu alta administranto por fari cxi tiu!", alertColor)
                     return
 
                 if len(command) <= 1:
-                    addText("Usage: /setsprite (sprite #)", alertColor)
+                    addText("Uzado: /setsprite (sprite #)", alertColor)
                     return
 
                 if not command[1].isdigit():
-                    addText("Usage: /setsprite (sprite #)", alertColor)
+                    addText("Uzado: /setsprite (sprite #)", alertColor)
                     return
 
                 g.tcpConn.sendSetSprite(int(command[1]))
 
             if command[0] == "/mapreport":
                 if getPlayerAccess(g.myIndex) < ADMIN_MAPPER:
-                    addText("You need to be a high enough staff member to do this!", alertColor)
+                    addText("Vi devas esti plu alta administranto por fari cxi tiu!", alertColor)
                     return
 
                 g.tcpConn.sendMapReport()
 
             if command[0] == '/respawn':
                 if getPlayerAccess(g.myIndex) < ADMIN_MAPPER:
-                    addText("You need to be a high enough staff member to do this!", alertColor)
+                    addText("Vi devas esti plu alta administranto por fari cxi tiu!", alertColor)
                     return
 
                 g.tcpConn.sendMapRespawn()
@@ -240,14 +240,14 @@ def handleMsg(text):
             ''' enables the map editor '''
             if command[0] == "/itemeditor":
                 if getPlayerAccess(g.myIndex) < ADMIN_DEVELOPER:
-                    addText("You need to be a high enough staff member to do this!", alertColor)
+                    addText("Vi devas esti plu alta administranto por fari cxi tiu!", alertColor)
                     return
 
                 g.tcpConn.sendRequestEditItem()
 
             if command[0] == '/spelleditor':
                 if getPlayerAccess(g.myIndex) < ADMIN_DEVELOPER:
-                    addText("You need to be a high enough staff member to do this!", alertColor)
+                    addText("Vi devas esti plu alta administranto por fari cxi tiu!", alertColor)
                     return
 
                 g.tcpConn.sendRequestEditSpell()
@@ -255,7 +255,7 @@ def handleMsg(text):
             ''' enables the npc editor '''
             if command[0] == '/npceditor':
                 if getPlayerAccess(g.myIndex) < ADMIN_DEVELOPER:
-                    addText("You need to be a high enough staff member to do this!", alertColor)
+                    addText("Vi devas esti plu alta administranto por fari cxi tiu!", alertColor)
                     return
 
                 g.tcpConn.sendRequestEditNpc()
@@ -263,15 +263,15 @@ def handleMsg(text):
             ''' gives an item to a player '''
             if command[0] == '/giveitem':
                 if getPlayerAccess(g.myIndex) < ADMIN_DEVELOPER:
-                    addText("You need to be a high enough staff member to do this!", alertColor)
+                    addText("Vi devas esti plu alta administranto por fari cxi tiu!", alertColor)
                     return
 
                 if len(command) < 2:
-                    addText('usage: /giveitem <name> <itemnum>', alertColor)
+                    addText('Uzado: /giveitem <name> <itemnum>', alertColor)
                     return
 
                 if command[1].isdigit() or not command[2].isdigit():
-                    addText('usage: /giveitem <name> <itemnum>', alertColor)
+                    addText('Uzado: /giveitem <name> <itemnum>', alertColor)
                     return
 
                 g.tcpConn.sendGiveItem(command[1], int(command[2]))
@@ -282,15 +282,15 @@ def handleMsg(text):
 
             if command[0] == '/setaccess':
                 if getPlayerAccess(g.myIndex) < ADMIN_CREATOR:
-                    addText("You need to be a high enough staff member to do this!", alertColor)
+                    addText("Vi devas esti plu alta administranto por fari cxi tiu!", alertColor)
                     return
 
                 if len(command) < 2:
-                    addText('usage: /setaccess <name> <access>', alertColor)
+                    addText('Uzado: /setaccess <nomo> <access>', alertColor)
                     return
 
                 if command[1].isdigit() or not command[2].isdigit():
-                    addText('usage: /setaccess <name> <access>', alertColor)
+                    addText('Uzado: /setaccess <nomo> <access>', alertColor)
                     return
 
                 g.tcpConn.sendSetAccess(command[1], int(command[2]))
@@ -555,7 +555,7 @@ def castSpell(spellNum):
 
     # check if player has enough mp
     if getPlayerVital(g.myIndex, Vitals.mp) < Spell[spellSelected].reqMp:
-        addText(_('Not enough MP to cast ') + Spell[spellSelected].name + '.', textColor.BRIGHT_RED)
+        addText(_('Ne suficxa da MP por jxeti ') + Spell[spellSelected].name + '.', textColor.BRIGHT_RED)
 
     if PlayerSpells[spellSelected] != None:
         tickCount = time.time() * 1000
@@ -568,10 +568,10 @@ def castSpell(spellNum):
                     Player[g.myIndex].castedSpell = True
 
             else:
-                addText(_('Cannot cast while walking!'), textColor.BRIGHT_RED)
+                addText(_('Vi ne povas jxeti kiam vi promenas!'), textColor.BRIGHT_RED)
 
     else:
-        addText(_('No spell here.'), textColor.BRIGHT_RED)
+        addText(_('Ne ensorcxo cxi tie.'), textColor.BRIGHT_RED)
 
 def setSpellbookHotkey(slotNum, key):
     if key in g.SPELLBOOK_HOTKEYS:

@@ -31,13 +31,13 @@ class loginControl(gui.Table):
         self.td(gui.Input(name="username", value=_("Salutnomo"), font=HAPPY_FONT_TIME))
 
         self.tr()
-        self.td(gui.Password(name="password", value="password"), font=HAPPY_FONT_TIME)
+        self.td(gui.Password(name="password", value=""), font=HAPPY_FONT_TIME)
 
         self.tr()
         self.td(gui.Spacer(0, 30))
 
         self.tr()
-        btn = gui.Button(_("Ensaluto"), width=120, font=HAPPY_FONT_TIME)
+        btn = gui.Button(_("Ensaluti"), width=120, font=HAPPY_FONT_TIME)
         btn.connect(gui.CLICK, btnLogin, None)
         self.td(btn)
 

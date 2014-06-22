@@ -24,7 +24,7 @@ class registerControl(gui.Table):
                 if len(username) > 3 and len(password) > 3:
                     return True
                 else:
-                    alertMessageDialog(msg='Username and password must be larger than 3 characters.', title='An error occured')
+                    alertMessageDialog(msg='Salutnomo kaj pasvorto devas esti pli longa ol 3 signaroj', title='Eraro okazis')
 
             def isStringLegal(string):
                 restricted = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
@@ -32,7 +32,7 @@ class registerControl(gui.Table):
                 for i in range(len(string)):
                     if string[i] not in restricted:
                         # todo: msgbox (not valid)
-                        alertMessageDialog(msg='The name is not valid! The name may only contain a-z and 0-9.', title='An error occured')
+                        alertMessageDialog(msg='Malvalida nomo! Nomo devas havi nur [a-z], [A-Z], kaj [0-9].', title='Eraro okazis')
                         return False
 
                 return True
@@ -53,38 +53,38 @@ class registerControl(gui.Table):
 
                 else:
                     # todo: msgbox
-                    alertMessageDialog(msg='The passwords don\'t match.', title='An error occured')
+                    alertMessageDialog(msg='La pasvortoj ne kongruas.', title='Eraro okazis')
 
         def btnCancel(btn):
             g.gameState = MENU_LOGIN
 
         self.tr()
-        self.td(gui.Label('Username:', color=(255, 255, 255), font=HAPPY_FONT_TIME))
+        self.td(gui.Label('Salutnomo:', color=(255, 255, 255), font=HAPPY_FONT_TIME))
         self.tr()
-        self.td(gui.Input(name="username", value="Username", font=HAPPY_FONT_TIME))
+        self.td(gui.Input(name="username", value="Salutnomo", font=HAPPY_FONT_TIME))
 
         self.tr()
         self.td(gui.Spacer(0, 20))
 
         self.tr()
-        self.td(gui.Label('Password:', color=(255, 255, 255)))
+        self.td(gui.Label('Pasvorto:', color=(255, 255, 255)))
         self.tr()
-        self.td(gui.Password(name="password", value="password"), font=HAPPY_FONT_TIME)
+        self.td(gui.Password(name="password", value=""), font=HAPPY_FONT_TIME)
 
         self.tr()
         self.td(gui.Spacer(0, 10))
 
         self.tr()
-        self.td(gui.Label('Confirm password:', color=(255, 255, 255)))
+        self.td(gui.Label('Konfirmi pasvorto:', color=(255, 255, 255)))
         self.tr()
-        self.td(gui.Password(name="passwordConfirm", value="password"), font=HAPPY_FONT_TIME)
+        self.td(gui.Password(name="passwordConfirm", value=""), font=HAPPY_FONT_TIME)
 
         self.tr()
         self.td(gui.Spacer(0, 30))
 
 
         self.tr()
-        btn = gui.Button("Create", width=120, font=HAPPY_FONT_TIME)
+        btn = gui.Button("Krei", width=120, font=HAPPY_FONT_TIME)
         btn.connect(gui.CLICK, btnRegister, None)
         self.td(btn)
 
@@ -92,7 +92,7 @@ class registerControl(gui.Table):
         self.td(gui.Spacer(0, 5))
 
         self.tr()
-        btn = gui.Button("Cancel", width=120, font=HAPPY_FONT_TIME)
+        btn = gui.Button("Rezigni", width=120, font=HAPPY_FONT_TIME)
         btn.connect(gui.CLICK, btnCancel, None)
         self.td(btn)
 

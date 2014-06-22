@@ -18,12 +18,12 @@ class OpenItemDialog(gui.Dialog):
 
         self._count = 0
 
-        title = gui.Label("Open Item")
+        title = gui.Label("Malfermi eron")
 
         t = gui.Table()
 
         t.tr()
-        t.td(gui.Label('Select an item:'), colspan=2)
+        t.td(gui.Label('Elekti eron:'), colspan=2)
 
         t.tr()
         t.td(gui.Spacer(10, 20))
@@ -36,11 +36,11 @@ class OpenItemDialog(gui.Dialog):
         t.td(gui.Spacer(10, 20))
 
         t.tr()
-        e = gui.Button(_('Open item'))
+        e = gui.Button(_('Malfermi eron'))
         e.connect(gui.CLICK, self.openItem, None)
         t.td(e)
 
-        e = gui.Button('Cancel')
+        e = gui.Button('Rezigni')
         e.connect(gui.CLICK, self.close, None)
         t.td(e)
 
@@ -85,7 +85,7 @@ class DataEquipment(gui.Table):
         gui.Table.__init__(self, **params)
 
         self.tr()
-        self.lblDur = gui.Label(_('Durability: 0'), color=UI_FONT_COLOR)
+        self.lblDur = gui.Label(_('Fortikeco: 0'), color=UI_FONT_COLOR)
         self.td(self.lblDur)
 
         self.tr()
@@ -97,7 +97,7 @@ class DataEquipment(gui.Table):
         self.td(gui.Spacer(10, 20))
 
         self.tr()
-        self.lblStr = gui.Label('Strength: 0', color=UI_FONT_COLOR)
+        self.lblStr = gui.Label('Forteco: 0', color=UI_FONT_COLOR)
         self.td(self.lblStr)
 
         self.tr()
@@ -106,10 +106,10 @@ class DataEquipment(gui.Table):
         self.td(e)
 
     def updateLabelStr(self, value):
-        self.lblStr.set_text('Strength: ' + str(value.value))
+        self.lblStr.set_text('Forteco: ' + str(value.value))
 
     def updateLabelDur(self, value):
-        self.lblDur.set_text('Durability: ' + str(value.value))
+        self.lblDur.set_text('Fortikeco: ' + str(value.value))
 
 
 class DataPotion(gui.Table):
@@ -118,7 +118,7 @@ class DataPotion(gui.Table):
         gui.Table.__init__(self, **params)
 
         self.tr()
-        self.lblVital = gui.Label('Vital Mod: Use the slider', color=UI_FONT_COLOR)
+        self.lblVital = gui.Label('Vitala modifado: uzu la sxovilon', color=UI_FONT_COLOR)
         self.td(self.lblVital)
 
         self.tr()
@@ -127,7 +127,7 @@ class DataPotion(gui.Table):
         self.td(e)
 
     def updateVitalName(self, value):
-        self.lblVital.set_text('Vital Mod: ' + str(value.value))
+        self.lblVital.set_text('Vitala modifado: ' + str(value.value))
 
 
 class DataSpell(gui.Table):
@@ -136,7 +136,7 @@ class DataSpell(gui.Table):
         gui.Table.__init__(self, **params)
 
         self.tr()
-        self.lblSpell = gui.Label('Spell: Use the slider', color=UI_FONT_COLOR)
+        self.lblSpell = gui.Label('Ensorcxo: uzu la sxovilon', color=UI_FONT_COLOR)
         self.td(self.lblSpell)
 
         self.tr()
@@ -145,7 +145,7 @@ class DataSpell(gui.Table):
         self.td(e)
 
     def updateSpellName(self, value):
-        self.lblSpell.set_text('Spell: ' + str(value.value))
+        self.lblSpell.set_text('Ensorcxo: ' + str(value.value))
 
 
 class ItemEditorContainer(gui.Container):
@@ -170,38 +170,38 @@ class ItemEditorContainer(gui.Container):
         self.tTitle = gui.Table(width=272, height=32)
 
         self.tTitle.tr()
-        self.tTitle.td(gui.Label(_("Item Editor"), name='itemTitle', color=UI_FONT_COLOR))
+        self.tTitle.td(gui.Label(_("Redaktilo de eroj"), name='itemTitle', color=UI_FONT_COLOR))
 
         # content
         self.tContent = gui.Table(width=272, height=123)
 
         self.tContent.tr()
-        e = gui.Button(_("Open item..."), width=100)
+        e = gui.Button(_("Malfermi ero..."), width=100)
         e.connect(gui.CLICK, openItemDialog.openDialog, None)
         self.tContent.td(e, colspan=2)
 
         self.tContent.tr()
-        self.tContent.td(gui.Label(_('Item Name:'), color=UI_FONT_COLOR), colspan=2)
+        self.tContent.td(gui.Label(_('Nomo de ero:'), color=UI_FONT_COLOR), colspan=2)
         self.tContent.tr()
         self.tContent.td(gui.Input('', size=26, name='inpItemName'), colspan=2, valign=-1)
 
         self.tContent.tr()
-        self.tContent.td(gui.Label('Item Type:', color=UI_FONT_COLOR))
+        self.tContent.td(gui.Label('Tipo de ero:', color=UI_FONT_COLOR))
         e = gui.Select(name='selItemType')
-        e.add('None', 0)
-        e.add('Weapon', 1)
-        e.add('Armor', 2)
-        e.add('Helmet', 3)
-        e.add('Shield', 4)
-        e.add('Potion (+HP)', 5)
-        e.add('Potion (+MP)', 6)
-        e.add('Potion (+SP)', 7)
-        e.add('Potion (-HP)', 8)
-        e.add('Potion (-MP)', 9)
-        e.add('Potion (-SP)', 10)
-        e.add('Key', 11)
-        e.add('Currency', 12)
-        e.add('Spell', 13)
+        e.add('Nenia', 0)
+        e.add('Armilo', 1)
+        e.add('Armajxo', 2)
+        e.add('Kasko', 3)
+        e.add('Sxildo', 4)
+        e.add('Kuracilo (+HP)', 5)
+        e.add('Kuracilo (+MP)', 6)
+        e.add('Kuracilo (+SP)', 7)
+        e.add('Kuracilo (-HP)', 8)
+        e.add('Kuracilo (-MP)', 9)
+        e.add('Kuracilo (-SP)', 10)
+        e.add('Sxlosila', 11)
+        e.add('Valuto', 12)
+        e.add('Ensorcxo', 13)
         e.value = 0
         e.connect(gui.CHANGE, self.updateType, None)
         self.tContent.td(e)
@@ -213,11 +213,11 @@ class ItemEditorContainer(gui.Container):
         self.tBottom = gui.Table(width=272, height=200)
 
         self.tBottom.tr()
-        self.saveButton = gui.Button("Add Item", width=100, height=40)
+        self.saveButton = gui.Button("Aldoni eron", width=100, height=40)
         self.saveButton .connect(gui.CLICK, self.saveItem, None)
         self.tBottom.td(self.saveButton)
 
-        e = gui.Button("Cancel", width=100, height=40)
+        e = gui.Button("Rezigni", width=100, height=40)
         e.connect(gui.CLICK, self.cancel, None)
         self.tBottom.td(e)
 
@@ -249,7 +249,7 @@ class ItemEditorContainer(gui.Container):
             self.value['selDataSpell'].value = int(0 if Item[itemNum].data1 is None else Item[itemNum].data1)
 
         # rename save button
-        self.saveButton.value = 'Save Item'
+        self.saveButton.value = 'Konservi eron'
 
         # update item num
         self.itemNum = itemNum
@@ -339,7 +339,7 @@ class ItemEditorContainer(gui.Container):
         # reset everything on quit
         self.value['inpItemName'].value = ''
         self.value['selItemType'].value = 0
-        self.saveButton.value = 'Add item'
+        self.saveButton.value = 'Aldoni eron'
 
         # equipment
         self.value['selDataDur'].value = 0

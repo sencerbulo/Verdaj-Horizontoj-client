@@ -27,12 +27,12 @@ GUI_SHOPEDITOR = 7
 
 class QuitDialog(gui.Dialog):
     def __init__(self, **params):
-        title = gui.Label(_("Exit Game"))
+        title = gui.Label(_("Eliri ludon"))
 
         t = gui.Table()
 
         t.tr()
-        t.td(gui.Label(_("Are you sure you want to quit?")), colspan=2)
+        t.td(gui.Label(_("Cxu vi volas eliri?")), colspan=2)
 
         t.tr()
         t.td(gui.Spacer(10, 20))
@@ -41,11 +41,11 @@ class QuitDialog(gui.Dialog):
             g.gameEngine.quitGame()
 
         t.tr()
-        e = gui.Button(_("Quit"))
+        e = gui.Button(_("Eliri"))
         e.connect(gui.CLICK, btnQuit, None)
         t.td(e)
 
-        e = gui.Button(_("Cancel"))
+        e = gui.Button(_("Rezigni"))
         e.connect(gui.CLICK, self.close, None)
         t.td(e)
 
@@ -170,20 +170,20 @@ class uiContainer(gui.Container):
         self.tBottom = gui.Table(width=272, height=200)
 
         self.tBottom.tr()
-        e = gui.Button(_("Stats"), width=100, height=40)
+        e = gui.Button(_("Statistikoj"), width=100, height=40)
         e.connect(gui.CLICK, self.toggleStats, None)
         self.tBottom.td(e)
-        e = gui.Button(_("Inventory"), width=100, height=40)
+        e = gui.Button(_("Inventaro"), width=100, height=40)
         e.connect(gui.CLICK, self.toggleInventory, None)
         self.tBottom.td(e)
 
         self.tBottom.tr()
-        e = gui.Button(_('Spellbook'), width=100, height=40)
+        e = gui.Button(_('Libro de ensorcxoj'), width=100, height=40)
         e.connect(gui.CLICK, self.toggleSpellbook, None)
         self.tBottom.td(e, colspan=2)
 
         self.tBottom.tr()
-        e = gui.Button(_('Settings'), width=100, height=40)
+        e = gui.Button(_('Agordoj'), width=100, height=40)
         e.connect(gui.CLICK, self.toggleSettings, None)
         self.tBottom.td(e, colspan=2)
 
@@ -202,16 +202,16 @@ class uiContainer(gui.Container):
 
     def toggleInventory(self, value):
         self.engine.setState(GUI_INVENTORY)
-        self.updateTitle(_('Inventory'))
+        self.updateTitle(_('Inventaro'))
 
     def toggleSpellbook(self, value):
         self.engine.setState(GUI_SPELLBOOK)
-        self.updateTitle(_('Spellbook'))
+        self.updateTitle(_('Libro de ensorcxoj'))
         g.tcpConn.sendRequestSpells()
 
     def toggleSettings(self, value):
         self.engine.setState(GUI_STATS)
-        self.updateTitle(_('Settings'))
+        self.updateTitle(_('Agordoj'))
 
     def updateTitle(self, title, titleColor=(251, 230, 204)):
         if self.tTitle.find('uiTitle'):
@@ -565,7 +565,7 @@ class GameGUI():
         font = g.nameFont
         fontColor = (251, 230, 204)
 
-        label = font.render('Level ' + str(getPlayerLevel(g.myIndex)) + ' (' + str(getPlayerExp(g.myIndex)) +'/' + str(g.expToNextLvl) + ')', 0, fontColor)
+        label = font.render('Nivelo ' + str(getPlayerLevel(g.myIndex)) + ' (' + str(getPlayerExp(g.myIndex)) +'/' + str(g.expToNextLvl) + ')', 0, fontColor)
         labelRect = label.get_rect()
         labelRect.centerx = 648
         labelRect.centery = 130
@@ -575,7 +575,7 @@ class GameGUI():
         font = g.nameFont
         fontColor = (251, 230, 204)
 
-        label = font.render('STR - ' + str(getPlayerStat(g.myIndex, Stats.strength)), 0, fontColor)
+        label = font.render('FORT - ' + str(getPlayerStat(g.myIndex, Stats.strength)), 0, fontColor)
         labelRect = label.get_rect()
         labelRect.centerx = 590
         labelRect.centery = 150
@@ -587,7 +587,7 @@ class GameGUI():
         labelRect.centery = 170
         g.guiSurface.blit(label, labelRect)
 
-        label = font.render('SPD - ' + str(getPlayerStat(g.myIndex, Stats.speed)), 0, fontColor)
+        label = font.render('RAP - ' + str(getPlayerStat(g.myIndex, Stats.speed)), 0, fontColor)
         labelRect = label.get_rect()
         labelRect.centerx = 705
         labelRect.centery = 150
@@ -978,17 +978,17 @@ class GameGUI():
                 # create strings
                 strReqMp = str(Spell[spellNum].reqMp) + _(' Mana')
                 if spellType == SPELL_TYPE_ADDHP:
-                    strEffect = 'Effect: +' + str(Spell[spellNum].data1) + ' HP'
+                    strEffect = 'Efekto: +' + str(Spell[spellNum].data1) + ' HP'
                 elif spellType == SPELL_TYPE_ADDMP:
-                    strEffect = 'Effect: +' + str(Spell[spellNum].data1) + ' MP'
+                    strEffect = 'Efekto: +' + str(Spell[spellNum].data1) + ' MP'
                 elif spellType == SPELL_TYPE_ADDSP:
-                    strEffect = 'Effect: +' + str(Spell[spellNum].data1) + ' SP'
+                    strEffect = 'Efekto: +' + str(Spell[spellNum].data1) + ' SP'
                 elif spellType == SPELL_TYPE_SUBHP:
-                    strEffect = 'Effect: -' + str(Spell[spellNum].data1) + ' HP'
+                    strEffect = 'Efekto: -' + str(Spell[spellNum].data1) + ' HP'
                 elif spellType == SPELL_TYPE_SUBMP:
-                    strEffect = 'Effect: -' + str(Spell[spellNum].data1) + ' MP'
+                    strEffect = 'Efekto: -' + str(Spell[spellNum].data1) + ' MP'
                 elif spellType == SPELL_TYPE_SUBSP:
-                    strEffect = 'Effect: -' + str(Spell[spellNum].data1) + ' SP'
+                    strEffect = 'Efekto: -' + str(Spell[spellNum].data1) + ' SP'
 
                 strReqMpSize = g.tooltipFont.size(strReqMp)
                 strEffectSize = g.tooltipFont.size(strEffect)

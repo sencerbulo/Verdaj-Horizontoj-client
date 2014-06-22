@@ -18,15 +18,15 @@ UI_FONT_COLOR = (251, 230, 204)
 
 class EmptyFieldAlertDialog(gui.Dialog):
     def __init__(self, **params):
-        title = gui.Label("Error")
+        title = gui.Label("Eraro")
 
         t = gui.Table()
 
         t.tr()
-        e = gui.Button('Choose map')
+        e = gui.Button('Elekti mapon')
         t.td(e)
 
-        e = gui.Button('Cancel')
+        e = gui.Button('Rezigni')
         e.connect(gui.CLICK, self.close, None)
         t.td(e)
 
@@ -41,12 +41,12 @@ class MapSelectorDialog(gui.Dialog):
 
         self._count = 1
 
-        title = gui.Label("Map Selector")
+        title = gui.Label("Elektilo de mapo")
 
         t = gui.Table()
 
         t.tr()
-        t.td(gui.Label('Select a map:'), colspan=2)
+        t.td(gui.Label('Elekti mapon:'), colspan=2)
 
         t.tr()
         t.td(gui.Spacer(10, 20))
@@ -59,11 +59,11 @@ class MapSelectorDialog(gui.Dialog):
         t.td(gui.Spacer(10, 20))
 
         t.tr()
-        e = gui.Button('Choose map')
+        e = gui.Button('Elekti mapon')
         e.connect(gui.CLICK, self.setInput, None)
         t.td(e)
 
-        e = gui.Button('Cancel')
+        e = gui.Button('Rezigni')
         e.connect(gui.CLICK, self.close, None)
         t.td(e)
 
@@ -110,12 +110,12 @@ class OpenItemDialog(gui.Dialog):
 
         self._count = 0
 
-        title = gui.Label("Open Item")
+        title = gui.Label("Malfermi eron")
 
         t = gui.Table()
 
         t.tr()
-        t.td(gui.Label('Select an item:'), colspan=2)
+        t.td(gui.Label('Elekti eron:'), colspan=2)
 
         t.tr()
         t.td(gui.Spacer(10, 20))
@@ -128,11 +128,11 @@ class OpenItemDialog(gui.Dialog):
         t.td(gui.Spacer(10, 20))
 
         t.tr()
-        e = gui.Button('Open item')
+        e = gui.Button('Malfermi eron')
         e.connect(gui.CLICK, self.openItem, None)
         t.td(e)
 
-        e = gui.Button('Cancel')
+        e = gui.Button('Rezigni')
         e.connect(gui.CLICK, self.close, None)
         t.td(e)
 
@@ -177,12 +177,12 @@ class OpenNPCDialog(gui.Dialog):
 
         self._count = 0
 
-        title = gui.Label("Open NPC")
+        title = gui.Label("Malfermi NPC")
 
         t = gui.Table()
 
         t.tr()
-        t.td(gui.Label('Select a NPC:'), colspan=2)
+        t.td(gui.Label('Elekti NPC:'), colspan=2)
 
         t.tr()
         t.td(gui.Spacer(10, 20))
@@ -195,11 +195,11 @@ class OpenNPCDialog(gui.Dialog):
         t.td(gui.Spacer(10, 20))
 
         t.tr()
-        e = gui.Button('Add NPC')
+        e = gui.Button('Aldoni NPC')
         e.connect(gui.CLICK, self.openNPC, None)
         t.td(e)
 
-        e = gui.Button('Cancel')
+        e = gui.Button('Rezigni')
         e.connect(gui.CLICK, self.close, None)
         t.td(e)
 
@@ -250,23 +250,23 @@ class propertiesControl(gui.Table):
         self.value = gui.Form()
 
         self.tr()
-        self.td(gui.Label("Map Name:", color=UI_FONT_COLOR))
+        self.td(gui.Label("Nomo de mapo:", color=UI_FONT_COLOR))
         self.td(gui.Input("", size=16, name="inpMapName"))
 
         self.tr()
-        self.td(gui.Label("Warp Up:", color=UI_FONT_COLOR))
+        self.td(gui.Label("Transporti nordon:", color=UI_FONT_COLOR))
         self.td(gui.Input("0", size=4, name="inpMapUp"))
 
         self.tr()
-        self.td(gui.Label("Warp Down:", color=UI_FONT_COLOR))
+        self.td(gui.Label("Transporti sudon:", color=UI_FONT_COLOR))
         self.td(gui.Input("0", size=4, name="inpMapDown"))
 
         self.tr()
-        self.td(gui.Label("Warp Left:", color=UI_FONT_COLOR))
+        self.td(gui.Label("Transporti okcidenton:", color=UI_FONT_COLOR))
         self.td(gui.Input("0", size=4, name="inpMapLeft"))
 
         self.tr()
-        self.td(gui.Label("Warp Right:", color=UI_FONT_COLOR))
+        self.td(gui.Label("Transporti orienton:", color=UI_FONT_COLOR))
         self.td(gui.Input("0", size=4, name="inpMapRight"))
 
         self.tr()
@@ -274,11 +274,11 @@ class propertiesControl(gui.Table):
 
         # npc list
         self.tr()
-        e = gui.Button('Add NPC...', width=80)
+        e = gui.Button('Aldoni NPC...', width=80)
         e.connect(gui.CLICK, openNpcDialog.openDialog, None)
         self.td(e)
 
-        e = gui.Button('Remove', width=80)
+        e = gui.Button('Fortiri', width=80)
         e.connect(gui.CLICK, self.removeNpc, None)
         self.td(e)
 
@@ -346,22 +346,22 @@ class placeTileControl(gui.Table):
         self.tr()
         g = gui.Group(name="grpTileType")
 
-        self.td(gui.Label("Ground", color=UI_FONT_COLOR))
+        self.td(gui.Label("Tereno", color=UI_FONT_COLOR))
         self.td(gui.Spacer(10, 0))
         e = gui.Radio(g, value=1)
         e.click()
         self.td(e)
 
         self.tr()
-        self.td(gui.Label("Fringe", color=UI_FONT_COLOR))
+        self.td(gui.Label("Frangxo", color=UI_FONT_COLOR))
         self.td(gui.Spacer(10, 0))
         self.td(gui.Radio(g, value=2))
 
         e = gui.Select(name='selTileType')
-        e.add('Layer 1', 0)
-        e.add('Layer 2', 1)
-        e.add('Layer 3', 2)
-        e.add('Fringe', 3)
+        e.add('Tavolo 1', 0)
+        e.add('Tavolo 2', 1)
+        e.add('Tavolo 3', 2)
+        e.add('Frangxo', 3)
         e.value = 0
         self.td(e)
         
@@ -373,11 +373,11 @@ class placeBlockControl(gui.Table):
         self.value = gui.Form()
 
         self.tr()
-        label = gui.Label("Left click to add block", color=UI_FONT_COLOR)
+        label = gui.Label("Maldekstre alklaki por aldoni blokon", color=UI_FONT_COLOR)
         self.td(label)
 
         self.tr()
-        label = gui.Label("Right click to remove block", color=UI_FONT_COLOR)
+        label = gui.Label("Dekstre alklaki por al fortiri blokon", color=UI_FONT_COLOR)
         self.td(label)
 
 
@@ -388,7 +388,7 @@ class placeWarpControl(gui.Table):
         self.value = gui.Form()
 
         self.tr()
-        self.td(gui.Label("Map ID: ", color=UI_FONT_COLOR), colspan=2)
+        self.td(gui.Label("Mapo ID: ", color=UI_FONT_COLOR), colspan=2)
 
         self.tr()
         self.inpMapID = gui.Input('0', size=8, name='inpWarpMapID')
@@ -398,7 +398,7 @@ class placeWarpControl(gui.Table):
         mapDialog = MapSelectorDialog(self.inpMapID)
 
         self.tr()
-        e = gui.Button('Choose map...')
+        e = gui.Button('Elektu mapon...')
         e.connect(gui.CLICK, mapDialog.openDialog, None)
         self.td(e, colspan=2)
 
@@ -406,7 +406,7 @@ class placeWarpControl(gui.Table):
         self.td(gui.Spacer(10, 20))
 
         self.tr()
-        self.td(gui.Label("Warp-To Position", color=UI_FONT_COLOR), colspan=2)
+        self.td(gui.Label("Iru al pozicio", color=UI_FONT_COLOR), colspan=2)
 
         self.tr()
         self.td(gui.Label("X: ", color=UI_FONT_COLOR))
@@ -420,11 +420,11 @@ class placeWarpControl(gui.Table):
         self.td(gui.Spacer(10, 20))
 
         self.tr()
-        label = gui.Label("Left click to add warp", color=UI_FONT_COLOR)
+        label = gui.Label("Maldekstre alklaki por aldoni transporton", color=UI_FONT_COLOR)
         self.td(label, colspan=2)
 
         self.tr()
-        label = gui.Label("Right click to remove warp", color=UI_FONT_COLOR)
+        label = gui.Label("Dekstre alklaki por al fortiri transporton", color=UI_FONT_COLOR)
         self.td(label, colspan=2)
 
         # initialize the alert dialog
@@ -445,7 +445,7 @@ class placeItemControl(gui.Table):
         openItemDialog = OpenItemDialog(self)
 
         self.tr()
-        e = gui.Button("Open item...", width=100)
+        e = gui.Button("Malfermi eron...", width=100)
         e.connect(gui.CLICK, openItemDialog.openDialog, None)
         self.td(e)
 
@@ -453,7 +453,7 @@ class placeItemControl(gui.Table):
         self.td(gui.Spacer(10, 20))
 
         self.tr()
-        self.td(gui.Label('Select an item to spawn', color=UI_FONT_COLOR, name='lblItemName'))
+        self.td(gui.Label('Elektu eron por krei', color=UI_FONT_COLOR, name='lblItemName'))
 
         self.tr()
         self.td(gui.Spacer(10, 80))
@@ -495,30 +495,30 @@ class MapEditorContainer(gui.Container):
         self.tTitle = gui.Table(width=272, height=32)
 
         self.tTitle.tr()
-        self.tTitle.td(gui.Label("Map Editor", name='mapTitle', color=UI_FONT_COLOR))
+        self.tTitle.td(gui.Label("Redaktilo de mapo", name='mapTitle', color=UI_FONT_COLOR))
 
         # buttons
         self.t = gui.Table(width=272, height=50)
 
         self.t.tr()
-        e = gui.Button("Map Properties", width=200)
+        e = gui.Button("Trajtoj de mapo", width=200)
         e.connect(gui.CLICK, self.toggleProperties, None)
         self.t.td(e, colspan=4)
 
         self.t.tr()
-        e = gui.Button("Tile", width=40)
+        e = gui.Button("Tegolo", width=40)
         e.connect(gui.CLICK, self.toggleTile, None)
         self.t.td(e)
 
-        e = gui.Button("Block", width=40)
+        e = gui.Button("Bloko", width=40)
         e.connect(gui.CLICK, self.toggleBlock, None)
         self.t.td(e)
 
-        e = gui.Button("Warp", width=40)
+        e = gui.Button("Transporto", width=40)
         e.connect(gui.CLICK, self.toggleWarp, None)
         self.t.td(e)
 
-        e = gui.Button("Item", width=40)
+        e = gui.Button("Ero", width=40)
         e.connect(gui.CLICK, self.toggleItem, None)
         self.t.td(e)
 
@@ -527,11 +527,11 @@ class MapEditorContainer(gui.Container):
         self.tBottom = gui.Table(width=272, height=200)
 
         self.tBottom.tr()
-        e = gui.Button("Save", width=100, height=40)
+        e = gui.Button("Konservi", width=100, height=40)
         e.connect(gui.CLICK, self.saveMap, None)
         self.tBottom.td(e)
 
-        e = gui.Button("Cancel", width=100, height=40)
+        e = gui.Button("Rezigni", width=100, height=40)
         e.connect(gui.CLICK, self.cancelMap, None)
         self.tBottom.td(e)
 
@@ -690,8 +690,8 @@ class MapEditorGUI():
         g.gameEngine.graphicsEngine.gameGUI.guiContainer.mapEditorControl.toggleProperties(None)
 
         # write hotkeys
-        addText('Tip: Hold SHIFT while placing a tile to fill the whole layer.', textColor.YELLOW)
-        addText('Tip: Hold CTRL while removing a tile to clear the whole layer.', textColor.YELLOW)
+        addText('Helpo: Premu SHIFT kiam aldonas tegolon por plenigi la tutan tavolon.', textColor.YELLOW)
+        addText('Helpo: Premu CTRL kiam fortiras tegolon por purigi la tutan tavolon.', textColor.YELLOW)
 
         self.draw()
 
@@ -920,5 +920,5 @@ class MapEditorGUI():
 
         g.editor = EDITOR_NONE
         loadMap(getPlayerMap(g.myIndex))
-        print "load map?"
+        print "sxargi mapon?"
         initMapData()
