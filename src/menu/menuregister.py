@@ -8,6 +8,11 @@ from constants import *
 
 from gui.dialogs import alertMessageDialog
 
+# Font hack
+import os
+dataPath = os.path.join('..', 'data')
+HAPPY_FONT_TIME = pygame.font.Font(dataPath + '/fonts/ConsolaMono-Bold.ttf', 16)
+
 class registerControl(gui.Table):
     def __init__(self, **params):
         gui.Table.__init__(self, **params)
@@ -54,9 +59,9 @@ class registerControl(gui.Table):
             g.gameState = MENU_LOGIN
 
         self.tr()
-        self.td(gui.Label('Username:', color=(255, 255, 255)))
+        self.td(gui.Label('Username:', color=(255, 255, 255), font=HAPPY_FONT_TIME))
         self.tr()
-        self.td(gui.Input(name="username", value="Username"))
+        self.td(gui.Input(name="username", value="Username", font=HAPPY_FONT_TIME))
 
         self.tr()
         self.td(gui.Spacer(0, 20))
@@ -64,7 +69,7 @@ class registerControl(gui.Table):
         self.tr()
         self.td(gui.Label('Password:', color=(255, 255, 255)))
         self.tr()
-        self.td(gui.Password(name="password", value="password"))
+        self.td(gui.Password(name="password", value="password"), font=HAPPY_FONT_TIME)
 
         self.tr()
         self.td(gui.Spacer(0, 10))
@@ -72,14 +77,14 @@ class registerControl(gui.Table):
         self.tr()
         self.td(gui.Label('Confirm password:', color=(255, 255, 255)))
         self.tr()
-        self.td(gui.Password(name="passwordConfirm", value="password"))
+        self.td(gui.Password(name="passwordConfirm", value="password"), font=HAPPY_FONT_TIME)
 
         self.tr()
         self.td(gui.Spacer(0, 30))
 
 
         self.tr()
-        btn = gui.Button("Create", width=120)
+        btn = gui.Button("Create", width=120, font=HAPPY_FONT_TIME)
         btn.connect(gui.CLICK, btnRegister, None)
         self.td(btn)
 
@@ -87,7 +92,7 @@ class registerControl(gui.Table):
         self.td(gui.Spacer(0, 5))
 
         self.tr()
-        btn = gui.Button("Cancel", width=120)
+        btn = gui.Button("Cancel", width=120, font=HAPPY_FONT_TIME)
         btn.connect(gui.CLICK, btnCancel, None)
         self.td(btn)
 

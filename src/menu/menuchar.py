@@ -8,6 +8,11 @@ from constants import *
 
 UI_NAME_FONT_COLOR = (0, 0, 0)
 
+# Font hack
+import os
+dataPath = os.path.join('..', 'data')
+HAPPY_FONT_TIME = pygame.font.Font(dataPath + '/fonts/ConsolaMono-Bold.ttf', 16)
+
 class characterControl(gui.Table):
     def __init__(self, **params):
         gui.Table.__init__(self, **params)
@@ -43,17 +48,17 @@ class characterControl(gui.Table):
         self.td(self.lblPlayerExtra, colspan=3, align=0)
 
         self.tr()
-        btn = gui.Button(_("Previous"), width=160, height=40)
+        btn = gui.Button(_("Previous"), width=160, height=40, font=HAPPY_FONT_TIME)
         btn.connect(gui.CLICK, btnPrevChar, None)
         self.td(btn)
         self.td(gui.Spacer(300, 160))
-        btn = gui.Button(_("Next"), width=160, height=40)
+        btn = gui.Button(_("Next"), width=160, height=40, font=HAPPY_FONT_TIME)
         btn.connect(gui.CLICK, btnNextChar, None)
         self.td(btn)
 
         self.tr()
         self.td(gui.Spacer(0, 0))
-        self.btnSelChar = gui.Button(_("Use Character"), width=160, height=30)
+        self.btnSelChar = gui.Button(_("Use Character"), width=160, height=30, font=HAPPY_FONT_TIME)
         self.btnSelChar.connect(gui.CLICK, btnUseChar, None)
         self.td(self.btnSelChar)
         self.td(gui.Spacer(0, 0))
@@ -63,7 +68,7 @@ class characterControl(gui.Table):
 
         self.tr()
         self.td(gui.Spacer(0, 0))
-        btn = gui.Button(_("Delete Character"), width=160, height=30)
+        btn = gui.Button(_("Delete Character"), width=160, height=30, font=HAPPY_FONT_TIME)
         btn.connect(gui.CLICK, btnDelChar, None)
         self.td(btn)
         self.td(gui.Spacer(0, 0))

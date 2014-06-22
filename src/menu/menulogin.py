@@ -7,6 +7,10 @@ from network.database import *
 import global_vars as g
 from constants import *
 
+# Font hack
+import os
+dataPath = os.path.join('..', 'data')
+HAPPY_FONT_TIME = pygame.font.Font(dataPath + '/fonts/ConsolaMono-Bold.ttf', 16)
 
 class loginControl(gui.Table):
     def __init__(self, **params):
@@ -24,16 +28,16 @@ class loginControl(gui.Table):
                 g.gameEngine.initConnection()
 
         self.tr()
-        self.td(gui.Input(name="username", value=_("Username")))
+        self.td(gui.Input(name="username", value=_("Salutnomo"), font=HAPPY_FONT_TIME))
 
         self.tr()
-        self.td(gui.Password(name="password", value="password"))
+        self.td(gui.Password(name="password", value="password"), font=HAPPY_FONT_TIME)
 
         self.tr()
         self.td(gui.Spacer(0, 30))
 
         self.tr()
-        btn = gui.Button(_("Login"), width=120)
+        btn = gui.Button(_("Ensaluto"), width=120, font=HAPPY_FONT_TIME)
         btn.connect(gui.CLICK, btnLogin, None)
         self.td(btn)
 
@@ -41,7 +45,7 @@ class loginControl(gui.Table):
         self.td(gui.Spacer(0, 5))
 
         self.tr()
-        btn = gui.Button(_("Register"), width=120)
+        btn = gui.Button(_("Registri"), width=120, font=HAPPY_FONT_TIME)
         btn.connect(gui.CLICK, btnRegister, None)
         self.td(btn)
 

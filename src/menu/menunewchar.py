@@ -11,6 +11,11 @@ from constants import *
 import gui.pygUI as pygUI
 from gui.dialogs import alertMessageDialog
 
+# Font hack
+import os
+dataPath = os.path.join('..', 'data')
+HAPPY_FONT_TIME = pygame.font.Font(dataPath + '/fonts/ConsolaMono-Bold.ttf', 16)
+
 class newCharControl(gui.Table):
     def __init__(self, **params):
         gui.Table.__init__(self, **params)
@@ -32,7 +37,7 @@ class newCharControl(gui.Table):
             g.gameState = MENU_CHAR
 
         self.tr()
-        self.lblCharName = gui.Label(_('Character Name'), color=(255, 255, 255))
+        self.lblCharName = gui.Label(_('Character Name'), color=(255, 255, 255), font=HAPPY_FONT_TIME)
         self.td(self.lblCharName, colspan=3, valign=1)
 
         self.tr()
@@ -40,21 +45,21 @@ class newCharControl(gui.Table):
         self.td(self.inpCharName, colspan=3)
 
         self.tr()
-        self.lblClassName = gui.Label(_('CLASS NAME'), color=(255, 255, 255))
+        self.lblClassName = gui.Label(_('CLASS NAME'), color=(255, 255, 255), font=HAPPY_FONT_TIME)
         self.td(self.lblClassName, colspan=3, valign=1)
 
         self.tr()
-        btn = gui.Button(_("Previous"), width=160, height=40)
+        btn = gui.Button(_("Previous"), width=160, height=40, font=HAPPY_FONT_TIME)
         btn.connect(gui.CLICK, btnPrevClass, None)
         self.td(btn)
         self.td(gui.Spacer(300, 160))
-        btn = gui.Button(_("Next"), width=160, height=40)
+        btn = gui.Button(_("Next"), width=160, height=40, font=HAPPY_FONT_TIME)
         btn.connect(gui.CLICK, btnNextClass, None)
         self.td(btn)
 
         self.tr()
         self.td(gui.Spacer(0, 0))
-        self.btnSelChar = gui.Button(_("Create Character"), width=160, height=30)
+        self.btnSelChar = gui.Button(_("Create Character"), width=160, height=30, font=HAPPY_FONT_TIME)
         self.btnSelChar.connect(gui.CLICK, btnCreateChar, None)
         self.td(self.btnSelChar)
         self.td(gui.Spacer(0, 0))
@@ -64,7 +69,7 @@ class newCharControl(gui.Table):
 
         self.tr()
         self.td(gui.Spacer(0, 0))
-        btn = gui.Button("Cancel", width=160, height=30)
+        btn = gui.Button("Cancel", width=160, height=30, font=HAPPY_FONT_TIME)
         btn.connect(gui.CLICK, btnCancel, None)
         self.td(btn)
         self.td(gui.Spacer(0, 0))
