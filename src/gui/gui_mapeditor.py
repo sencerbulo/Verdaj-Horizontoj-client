@@ -373,11 +373,11 @@ class placeBlockControl(gui.Table):
         self.value = gui.Form()
 
         self.tr()
-        label = gui.Label("Maldekstre alklaki por aldoni blokon", color=UI_FONT_COLOR)
+        label = gui.Label("Maldekstre alklaki por aldoni sxtopilo", color=UI_FONT_COLOR)
         self.td(label)
 
         self.tr()
-        label = gui.Label("Dekstre alklaki por al fortiri blokon", color=UI_FONT_COLOR)
+        label = gui.Label("Dekstre alklaki por al fortiri sxtopilo", color=UI_FONT_COLOR)
         self.td(label)
 
 
@@ -510,7 +510,7 @@ class MapEditorContainer(gui.Container):
         e.connect(gui.CLICK, self.toggleTile, None)
         self.t.td(e)
 
-        e = gui.Button("Bloko", width=40)
+        e = gui.Button("Sxtopilo", width=40)
         e.connect(gui.CLICK, self.toggleBlock, None)
         self.t.td(e)
 
