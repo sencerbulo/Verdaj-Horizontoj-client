@@ -118,11 +118,11 @@ clock = pygame.time.Clock()
 
 # fonts
 ''' change these to customize the in-game fonts '''
-systemFont = pygame.font.Font(dataPath + '/fonts/Lato-Regular.ttf', 16)
-nameFont = pygame.font.Font(dataPath + '/fonts/Romulus.ttf', 16)
-chatFont = pygame.font.Font(dataPath + '/fonts/Romulus.ttf', 16)
-charSelFont = pygame.font.Font(dataPath + '/fonts/Romulus.ttf', 23)
-tooltipFont = pygame.font.Font(dataPath + '/fonts/Romulus.ttf', 16)
+systemFont = pygame.font.Font(dataPath + '/fonts/ConsolaMono-Bold.ttf', 16)
+nameFont = pygame.font.Font(dataPath + '/fonts/ConsolaMono-Bold.ttf', 12)
+chatFont = pygame.font.Font(dataPath + '/fonts/ConsolaMono-Bold.ttf', 12)
+charSelFont = pygame.font.Font(dataPath + '/fonts/ConsolaMono-Bold.ttf', 18)
+tooltipFont = pygame.font.Font(dataPath + '/fonts/ConsolaMono-Bold.ttf', 12)
 
 # check if text is to be drawn
 boolFPS = False
