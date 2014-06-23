@@ -8,3 +8,4 @@
 * Make the tile chooser box larger
 * Allow tiles to continue being drawn on mouse down, instead of just mouse up
 * Move down titlescreen UI to make room for the title text up top
+* Hat letter support
