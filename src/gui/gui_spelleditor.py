@@ -18,12 +18,12 @@ class OpenSpellDialog(gui.Dialog):
 
         self._count = 0
 
-        title = gui.Label(_("Malfermi ensorcxon"))
+        title = gui.Label(_("Malfermi sorcxon"))
 
         t = gui.Table()
 
         t.tr()
-        t.td(gui.Label(_('Elekti ensorcxon:')), colspan=2)
+        t.td(gui.Label(_('Elektu sorcxon:')), colspan=2)
 
         t.tr()
         t.td(gui.Spacer(10, 20))
@@ -36,7 +36,7 @@ class OpenSpellDialog(gui.Dialog):
         t.td(gui.Spacer(10, 20))
 
         t.tr()
-        e = gui.Button(_('Malfermi ensorcxon'))
+        e = gui.Button(_('Malfermi sorcxon'))
         e.connect(gui.CLICK, self.openSpell, None)
         t.td(e)
 
@@ -85,7 +85,7 @@ class DataGiveItem(gui.Table):
         gui.Table.__init__(self, **params)
 
         self.tr()
-        self.lblItemNum = gui.Label(_('Ero: 0'), color=UI_FONT_COLOR)
+        self.lblItemNum = gui.Label(_('Objekto: 0'), color=UI_FONT_COLOR)
         self.td(self.lblItemNum)
 
         self.tr()
@@ -97,7 +97,7 @@ class DataGiveItem(gui.Table):
         self.td(gui.Spacer(10, 20))
 
         self.tr()
-        self.lblStr = gui.Label(_('Valoro de ero: 0'), color=UI_FONT_COLOR)
+        self.lblStr = gui.Label(_('Prezo de objekto: 0'), color=UI_FONT_COLOR)
         self.td(self.lblStr)
 
         self.tr()
@@ -109,14 +109,14 @@ class DataGiveItem(gui.Table):
         self.sliItemNum.max = maxItemNum
 
     def updateLabelStr(self, value):
-        self.lblStr.set_text(_('Valoro de ero: ') + str(value.value))
+        self.lblStr.set_text(_('Prezo de objekto: ') + str(value.value))
 
     def updateLabelItemNum(self, value):
         if Item[value.value].name != '':
-            self.lblItemNum.set_text(_('Ero: ') + Item[value.value].name)
+            self.lblItemNum.set_text(_('Objekto: ') + Item[value.value].name)
 
         else:
-            self.lblItemNum.set_text(_('Ne estas valida nombro por ero!'))
+            self.lblItemNum.set_text(_('La Objekta Indekso nevalidas!'))
 
 
 class DataVitalMod(gui.Table):
@@ -164,24 +164,24 @@ class SpellEditorContainer(gui.Container):
         self.tContent = gui.Table(width=272, height=123)
 
         self.tContent.tr()
-        e = gui.Button("Malfermi ensorcxon...", width=100)
+        e = gui.Button("Malfermi sorcxon...", width=100)
         e.connect(gui.CLICK, openSpellDialog.openDialog, None)
         self.tContent.td(e, colspan=2)
 
         self.tContent.tr()
-        self.tContent.td(gui.Label('Nomo de ensorcxo:', color=UI_FONT_COLOR), colspan=2)
+        self.tContent.td(gui.Label('Sorcxnomo:', color=UI_FONT_COLOR), colspan=2)
         self.tContent.tr()
         self.tContent.td(gui.Input('', size=26, name='inpSpellName'), colspan=2, valign=-1)
 
         self.tContent.tr()
-        self.tContent.td(gui.Label('Tipo de ensorcxo:', color=UI_FONT_COLOR))
+        self.tContent.td(gui.Label('Sorcxspeco:', color=UI_FONT_COLOR))
         e = gui.Select(name='selSpellType')
-        e.add('Aldoni HP', 0)
-        e.add('Aldoni MP', 1)
-        e.add('Aldoni SP', 2)
-        e.add('Fortiri HP', 3)
-        e.add('Fortiri MP', 4)
-        e.add('Fortiri SP', 5)
+        e.add('Aldoni VE', 0)
+        e.add('Aldoni ME', 1)
+        e.add('Aldoni SE', 2)
+        e.add('Fortiri VE', 3)
+        e.add('Fortiri ME', 4)
+        e.add('Fortiri SE', 5)
         e.add('Doni eron', 6)
         e.value = 0
         e.connect(gui.CHANGE, self.updateType, None)
@@ -198,7 +198,7 @@ class SpellEditorContainer(gui.Container):
         self.tBottom = gui.Table(width=272, height=200)
 
         self.tBottom.tr()
-        self.saveButton = gui.Button("Aldoni ensorcxon", width=100, height=40)
+        self.saveButton = gui.Button("Aldoni sorcxon", width=100, height=40)
         self.saveButton .connect(gui.CLICK, self.saveSpell, None)
         self.tBottom.td(self.saveButton)
 
@@ -237,7 +237,7 @@ class SpellEditorContainer(gui.Container):
             self.value['selDataItemVal'].value = int(0 if Spell[spellNum].data2 is None else Spell[spellNum].data2)
 
         # rename save button
-        self.saveButton.value = 'Konservi ensorcxon'
+        self.saveButton.value = 'Konservi sorcxon'
 
         # update item num
         self.spellNum = spellNum

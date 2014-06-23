@@ -63,7 +63,7 @@ class Engine:
         ''' reads the configuration file '''
 
         if not os.path.isfile(configFile):
-            print 'No configuration file was found'
+            print 'Agorda dosiero ne fondis'
             return
 
         config = ConfigParser.RawConfigParser()
@@ -76,7 +76,7 @@ class Engine:
             if config.getboolean('sound', 'music') is False:
                 g.soundEngine.musicMuted = True
         except:
-            print 'An error occured while reading the configuration file'
+            print 'Eraro okazis kiam mi legis la agordan dosieron'
 
     def disconnect(self):
         g.connector.disconnect()

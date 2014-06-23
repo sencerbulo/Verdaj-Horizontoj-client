@@ -37,7 +37,7 @@ class newCharControl(gui.Table):
             g.gameState = MENU_CHAR
 
         self.tr()
-        self.lblCharName = gui.Label(_('Character Name'), color=(255, 255, 255), font=HAPPY_FONT_TIME)
+        self.lblCharName = gui.Label(_('Nomo de rolulo'), color=(255, 255, 255), font=HAPPY_FONT_TIME)
         self.td(self.lblCharName, colspan=3, valign=1)
 
         self.tr()
@@ -69,7 +69,7 @@ class newCharControl(gui.Table):
 
         self.tr()
         self.td(gui.Spacer(0, 0))
-        btn = gui.Button("Cancel", width=160, height=30, font=HAPPY_FONT_TIME)
+        btn = gui.Button("Rezigni", width=160, height=30, font=HAPPY_FONT_TIME)
         btn.connect(gui.CLICK, btnCancel, None)
         self.td(btn)
         self.td(gui.Spacer(0, 0))
@@ -86,16 +86,16 @@ class menuNewCharacter():
         self.classIndex = 0
 
         # - statistics
-        self.labelInfoStats = pygUI.pygLabel((544, 50, 256, 20), _("Class Statistics"), align=pygUI.ALIGN_CENTER)
+        self.labelInfoStats = pygUI.pygLabel((544, 50, 256, 20), _("Klasa statistikoj"), align=pygUI.ALIGN_CENTER)
 
-        self.labelHP = pygUI.pygLabel((544, 70, 10, 10), "HP: ")
-        self.labelMP = pygUI.pygLabel((544, 90, 10, 10), "MP: ")
-        self.labelSP = pygUI.pygLabel((544, 110, 10, 10), "SP: ")
+        self.labelHP = pygUI.pygLabel((544, 70, 10, 10), "VE: ")
+        self.labelMP = pygUI.pygLabel((544, 90, 10, 10), "ME: ")
+        self.labelSP = pygUI.pygLabel((544, 110, 10, 10), "SE: ")
 
-        self.labelStr = pygUI.pygLabel((544, 150, 10, 10), "Strength: ")
-        self.labelDef = pygUI.pygLabel((544, 170, 10, 10), "Defense:")
-        self.labelSpd = pygUI.pygLabel((544, 190, 10, 10), "Speed:")
-        self.labelMag = pygUI.pygLabel((544, 210, 10, 10), "Magic:")
+        self.labelStr = pygUI.pygLabel((544, 150, 10, 10), "Forto: ")
+        self.labelDef = pygUI.pygLabel((544, 170, 10, 10), "Defendo:")
+        self.labelSpd = pygUI.pygLabel((544, 190, 10, 10), "Rapido:")
+        self.labelMag = pygUI.pygLabel((544, 210, 10, 10), "Magio:")
 
         self.labels = (self.labelInfoStats, self.labelHP, self.labelMP, self.labelSP, self.labelStr, self.labelDef, self.labelSpd, self.labelMag)
 
@@ -141,7 +141,7 @@ class menuNewCharacter():
 
         for i in range(len(string)):
             if string[i] not in restricted:
-                alertMessageDialog(msg=_('Malvalida nomo! Nomo devas havi nur [a-z], [A-Z], kaj [0-9].'), title=_('Eraro okazis'))
+                alertMessageDialog(msg=_('La nomo nevalidas. Gxi devas enhavi nur tiujn karaktrojn: [a-z], [A-Z], kaj [0-9].'), title=_('Eraro okazis'))
                 return False
 
         return True

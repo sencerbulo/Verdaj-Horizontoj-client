@@ -24,7 +24,7 @@ class registerControl(gui.Table):
                 if len(username) > 3 and len(password) > 3:
                     return True
                 else:
-                    alertMessageDialog(msg='Salutnomo kaj pasvorto devas esti pli longa ol 3 signaroj', title='Eraro okazis')
+                    alertMessageDialog(msg='La salutnomo kaj pasvorto devas esti pli longa ol 3 karaktroj', title='Eraro okazis')
 
             def isStringLegal(string):
                 restricted = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
@@ -32,7 +32,7 @@ class registerControl(gui.Table):
                 for i in range(len(string)):
                     if string[i] not in restricted:
                         # todo: msgbox (not valid)
-                        alertMessageDialog(msg='Malvalida nomo! Nomo devas havi nur [a-z], [A-Z], kaj [0-9].', title='Eraro okazis')
+                        alertMessageDialog(msg='La nomo nevalidas. Gxi devas enhavi nur tiujn karaktrojn: [a-z], [A-Z], kaj [0-9].', title='Eraro okazis')
                         return False
 
                 return True

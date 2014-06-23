@@ -50,6 +50,7 @@ THE SOFTWARE.
 
 # Translation Credits
 * Jorge
+* Tea
 
 # Code Tweaking
 * Rachel J. Morris

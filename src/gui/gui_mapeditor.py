@@ -41,12 +41,12 @@ class MapSelectorDialog(gui.Dialog):
 
         self._count = 1
 
-        title = gui.Label("Elektilo de mapo")
+        title = gui.Label("Mapelektilo")
 
         t = gui.Table()
 
         t.tr()
-        t.td(gui.Label('Elekti mapon:'), colspan=2)
+        t.td(gui.Label('Elektu la mapon:'), colspan=2)
 
         t.tr()
         t.td(gui.Spacer(10, 20))
@@ -59,7 +59,7 @@ class MapSelectorDialog(gui.Dialog):
         t.td(gui.Spacer(10, 20))
 
         t.tr()
-        e = gui.Button('Elekti mapon')
+        e = gui.Button('Elektu la mapon')
         e.connect(gui.CLICK, self.setInput, None)
         t.td(e)
 
@@ -110,12 +110,12 @@ class OpenItemDialog(gui.Dialog):
 
         self._count = 0
 
-        title = gui.Label("Malfermi eron")
+        title = gui.Label("Malfermi objekton")
 
         t = gui.Table()
 
         t.tr()
-        t.td(gui.Label('Elekti eron:'), colspan=2)
+        t.td(gui.Label('Elektu objekton:'), colspan=2)
 
         t.tr()
         t.td(gui.Spacer(10, 20))
@@ -128,7 +128,7 @@ class OpenItemDialog(gui.Dialog):
         t.td(gui.Spacer(10, 20))
 
         t.tr()
-        e = gui.Button('Malfermi eron')
+        e = gui.Button('Malfermi objekton')
         e.connect(gui.CLICK, self.openItem, None)
         t.td(e)
 
@@ -177,12 +177,12 @@ class OpenNPCDialog(gui.Dialog):
 
         self._count = 0
 
-        title = gui.Label("Malfermi NPC")
+        title = gui.Label("Sxargxi na NLR")
 
         t = gui.Table()
 
         t.tr()
-        t.td(gui.Label('Elekti NPC:'), colspan=2)
+        t.td(gui.Label('Elektu na NLR:'), colspan=2)
 
         t.tr()
         t.td(gui.Spacer(10, 20))
@@ -195,7 +195,7 @@ class OpenNPCDialog(gui.Dialog):
         t.td(gui.Spacer(10, 20))
 
         t.tr()
-        e = gui.Button('Aldoni NPC')
+        e = gui.Button('Aldoni na NLR')
         e.connect(gui.CLICK, self.openNPC, None)
         t.td(e)
 
@@ -250,23 +250,23 @@ class propertiesControl(gui.Table):
         self.value = gui.Form()
 
         self.tr()
-        self.td(gui.Label("Nomo de mapo:", color=UI_FONT_COLOR))
+        self.td(gui.Label("Mapnomo:", color=UI_FONT_COLOR))
         self.td(gui.Input("", size=16, name="inpMapName"))
 
         self.tr()
-        self.td(gui.Label("Transporti nordon:", color=UI_FONT_COLOR))
+        self.td(gui.Label("Transolki norden:", color=UI_FONT_COLOR))
         self.td(gui.Input("0", size=4, name="inpMapUp"))
 
         self.tr()
-        self.td(gui.Label("Transporti sudon:", color=UI_FONT_COLOR))
+        self.td(gui.Label("Transolki suden:", color=UI_FONT_COLOR))
         self.td(gui.Input("0", size=4, name="inpMapDown"))
 
         self.tr()
-        self.td(gui.Label("Transporti okcidenton:", color=UI_FONT_COLOR))
+        self.td(gui.Label("Transolki okcidenten:", color=UI_FONT_COLOR))
         self.td(gui.Input("0", size=4, name="inpMapLeft"))
 
         self.tr()
-        self.td(gui.Label("Transporti orienton:", color=UI_FONT_COLOR))
+        self.td(gui.Label("Transolki orienten:", color=UI_FONT_COLOR))
         self.td(gui.Input("0", size=4, name="inpMapRight"))
 
         self.tr()
@@ -274,11 +274,11 @@ class propertiesControl(gui.Table):
 
         # npc list
         self.tr()
-        e = gui.Button('Aldoni NPC...', width=80)
+        e = gui.Button('Aldoni na NLR...', width=80)
         e.connect(gui.CLICK, openNpcDialog.openDialog, None)
         self.td(e)
 
-        e = gui.Button('Fortiri', width=80)
+        e = gui.Button('Demeti', width=80)
         e.connect(gui.CLICK, self.removeNpc, None)
         self.td(e)
 
@@ -373,11 +373,11 @@ class placeBlockControl(gui.Table):
         self.value = gui.Form()
 
         self.tr()
-        label = gui.Label("Maldekstre alklaki por aldoni sxtopilo", color=UI_FONT_COLOR)
+        label = gui.Label("Alklaku maldekstre por aldoni blokajxon", color=UI_FONT_COLOR)
         self.td(label)
 
         self.tr()
-        label = gui.Label("Dekstre alklaki por al fortiri sxtopilo", color=UI_FONT_COLOR)
+        label = gui.Label("Alklaku dekstre por demeti blokajxon", color=UI_FONT_COLOR)
         self.td(label)
 
 
@@ -388,7 +388,7 @@ class placeWarpControl(gui.Table):
         self.value = gui.Form()
 
         self.tr()
-        self.td(gui.Label("Mapo ID: ", color=UI_FONT_COLOR), colspan=2)
+        self.td(gui.Label("Mapidentigo: ", color=UI_FONT_COLOR), colspan=2)
 
         self.tr()
         self.inpMapID = gui.Input('0', size=8, name='inpWarpMapID')
@@ -406,7 +406,7 @@ class placeWarpControl(gui.Table):
         self.td(gui.Spacer(10, 20))
 
         self.tr()
-        self.td(gui.Label("Iru al pozicio", color=UI_FONT_COLOR), colspan=2)
+        self.td(gui.Label("Transloki al situo", color=UI_FONT_COLOR), colspan=2)
 
         self.tr()
         self.td(gui.Label("X: ", color=UI_FONT_COLOR))
@@ -420,11 +420,11 @@ class placeWarpControl(gui.Table):
         self.td(gui.Spacer(10, 20))
 
         self.tr()
-        label = gui.Label("Maldekstre alklaki por aldoni transporton", color=UI_FONT_COLOR)
+        label = gui.Label("Klaku maldekstren por aldoni translokadon", color=UI_FONT_COLOR)
         self.td(label, colspan=2)
 
         self.tr()
-        label = gui.Label("Dekstre alklaki por al fortiri transporton", color=UI_FONT_COLOR)
+        label = gui.Label("Klaku dekstren por demeti translokadon", color=UI_FONT_COLOR)
         self.td(label, colspan=2)
 
         # initialize the alert dialog
@@ -453,7 +453,7 @@ class placeItemControl(gui.Table):
         self.td(gui.Spacer(10, 20))
 
         self.tr()
-        self.td(gui.Label('Elektu eron por krei', color=UI_FONT_COLOR, name='lblItemName'))
+        self.td(gui.Label('Elektu objekton por generi', color=UI_FONT_COLOR, name='lblItemName'))
 
         self.tr()
         self.td(gui.Spacer(10, 80))
@@ -495,30 +495,30 @@ class MapEditorContainer(gui.Container):
         self.tTitle = gui.Table(width=272, height=32)
 
         self.tTitle.tr()
-        self.tTitle.td(gui.Label("Redaktilo de mapo", name='mapTitle', color=UI_FONT_COLOR))
+        self.tTitle.td(gui.Label("Mapeditilo", name='mapTitle', color=UI_FONT_COLOR))
 
         # buttons
         self.t = gui.Table(width=272, height=50)
 
         self.t.tr()
-        e = gui.Button("Trajtoj de mapo", width=200)
+        e = gui.Button("Mapecoj", width=200)
         e.connect(gui.CLICK, self.toggleProperties, None)
         self.t.td(e, colspan=4)
 
         self.t.tr()
-        e = gui.Button("Tegolo", width=40)
+        e = gui.Button("Kahelo", width=40)
         e.connect(gui.CLICK, self.toggleTile, None)
         self.t.td(e)
 
-        e = gui.Button("Sxtopilo", width=40)
+        e = gui.Button("Blokajxo", width=40)
         e.connect(gui.CLICK, self.toggleBlock, None)
         self.t.td(e)
 
-        e = gui.Button("Transporto", width=40)
+        e = gui.Button("Transloki", width=40)
         e.connect(gui.CLICK, self.toggleWarp, None)
         self.t.td(e)
 
-        e = gui.Button("Ero", width=40)
+        e = gui.Button("Objekto", width=40)
         e.connect(gui.CLICK, self.toggleItem, None)
         self.t.td(e)
 
@@ -690,8 +690,8 @@ class MapEditorGUI():
         g.gameEngine.graphicsEngine.gameGUI.guiContainer.mapEditorControl.toggleProperties(None)
 
         # write hotkeys
-        addText('Helpo: Premu SHIFT kiam aldonas tegolon por plenigi la tutan tavolon.', textColor.YELLOW)
-        addText('Helpo: Premu CTRL kiam fortiras tegolon por purigi la tutan tavolon.', textColor.YELLOW)
+        addText('Konsilio: Tenu SHIFT dum la meto de kahelo por sxtopi la tutan tavolon.', textColor.YELLOW)
+        addText('Konsilio: Tenu CTRL dum la demeto de kahelo por vakigi la tutan tavolon.', textColor.YELLOW)
 
         self.draw()
 
@@ -920,5 +920,5 @@ class MapEditorGUI():
 
         g.editor = EDITOR_NONE
         loadMap(getPlayerMap(g.myIndex))
-        print "sxargi mapon?"
+        print "Sxargi mapon?"
         initMapData()

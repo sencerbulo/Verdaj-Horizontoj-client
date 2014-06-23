@@ -5,7 +5,7 @@ from constants import *
 def alertMessageDialog(msg='', title=''):
     # show an alert message
     if title is '':
-        title = gui.Label('Informa mesagxo')
+        title = gui.Label('Averta mesagxo')
     else:
         title = gui.Label(title)
 
@@ -28,7 +28,7 @@ def alertMessageDialog(msg='', title=''):
             g.gameEngine.setState(MENU_LOGIN)
             d.close()
 
-        btn = gui.Button('okej', width=120)
+        btn = gui.Button('Konfirmi', width=120)
         btn.connect(gui.CLICK, btnAccountCreated, None)
 
     else:
@@ -36,7 +36,7 @@ def alertMessageDialog(msg='', title=''):
         def btnOk(btn):
             d.close()
 
-        btn = gui.Button('okej', width=120)
+        btn = gui.Button('Konfirmi', width=120)
         btn.connect(gui.CLICK, btnOk, None)
 
     # add button to alert message

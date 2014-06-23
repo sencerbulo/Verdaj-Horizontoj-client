@@ -14,12 +14,12 @@ class OpenNPCDialog(gui.Dialog):
 
         self._count = 0
 
-        title = gui.Label("Malfermi NPC")
+        title = gui.Label("Malfermi na NLR")
 
         t = gui.Table()
 
         t.tr()
-        t.td(gui.Label('Elektu NPC:'), colspan=2)
+        t.td(gui.Label('Elektu na NLR:'), colspan=2)
 
         t.tr()
         t.td(gui.Spacer(10, 20))
@@ -32,7 +32,7 @@ class OpenNPCDialog(gui.Dialog):
         t.td(gui.Spacer(10, 20))
 
         t.tr()
-        e = gui.Button('Malfermi NPC')
+        e = gui.Button('Malfermi na NLR')
         e.connect(gui.CLICK, self.openNPC, None)
         t.td(e)
 
@@ -81,12 +81,12 @@ class OpenItemDialog(gui.Dialog):
 
         self._count = 0
 
-        title = gui.Label("Elektu eron")
+        title = gui.Label("Elektu objekton")
 
         t = gui.Table()
 
         t.tr()
-        t.td(gui.Label('Elektu eron:'), colspan=2)
+        t.td(gui.Label('Elektu objekton:'), colspan=2)
 
         t.tr()
         t.td(gui.Spacer(10, 20))
@@ -99,7 +99,7 @@ class OpenItemDialog(gui.Dialog):
         t.td(gui.Spacer(10, 20))
 
         t.tr()
-        e = gui.Button('Elektu eron')
+        e = gui.Button('Elektu objekton')
         e.connect(gui.CLICK, self.openItem, None)
         t.td(e)
 
@@ -159,7 +159,7 @@ class NPCGeneralControl(gui.Table):
         self.td(gui.Spacer(10, 70))
 
         self.tr()
-        e = gui.Button("Malfermi NPC...", width=100)
+        e = gui.Button("Malfermi na NLR...", width=100)
         e.connect(gui.CLICK, openNpcDialog.openDialog, None)
         self.td(e, colspan=2)
 
@@ -180,9 +180,9 @@ class NPCGeneralControl(gui.Table):
         e = gui.Select(name='selBehaviour')
         e.add('Ataki tuj', 0)
         e.add('Ataki kiam dolorigxas', 1)
-        e.add('Amike', 2)
-        e.add('Butikisto', 3)
-        e.add('Gardisto', 4)
+        e.add('Amikema', 2)
+        e.add('Vendisto', 3)
+        e.add('Gardo', 4)
         e.value = 0
         #e.connect(gui.CHANGE, self.updateType, None)
         self.td(e, colspan=2)
@@ -191,7 +191,7 @@ class NPCGeneralControl(gui.Table):
         self.td(gui.Spacer(10, 10))
 
         self.tr()
-        self.lblSpawnSecs = gui.Label('Tempo gxis rekrei: 0 secs', color=UI_FONT_COLOR)
+        self.lblSpawnSecs = gui.Label('Reaperindico: 0 sekundoj', color=UI_FONT_COLOR)
         self.td(self.lblSpawnSecs, colspan=2)
 
         self.tr()
@@ -204,7 +204,7 @@ class NPCGeneralControl(gui.Table):
         self.parent.requestOpenNpc(npcNum)
 
     def updateLabelSpawnSecs(self, value):
-        self.lblSpawnSecs.set_text('Tempo gxis rekrei: ' + str(value.value) + ' secs')
+        self.lblSpawnSecs.set_text('Reaperindico: ' + str(value.value) + ' sekundoj')
 
 
 
@@ -222,7 +222,7 @@ class NPCCombatControl(gui.Table):
         self.itemVal = 0
 
         self.tr()
-        self.td(gui.Label('Mesagxo kiam batali:', color=UI_FONT_COLOR))
+        self.td(gui.Label('Atakmesagxo:', color=UI_FONT_COLOR))
         self.tr()
         self.td(gui.Input('', size=26, name='inpNpcAttackSay'), valign=-1)
 
@@ -230,7 +230,7 @@ class NPCCombatControl(gui.Table):
         self.td(gui.Spacer(10, 20))
 
         self.tr()
-        self.lblRan = gui.Label('Trafpovo: 0', color=UI_FONT_COLOR)
+        self.lblRan = gui.Label('Atingo: 0', color=UI_FONT_COLOR)
         self.td(self.lblRan)
 
         self.tr()
@@ -242,7 +242,7 @@ class NPCCombatControl(gui.Table):
         self.td(gui.Spacer(10, 20))
 
         self.tr()
-        self.lblDropChance = gui.Label('Drop Chance: 0 (0%)', color=UI_FONT_COLOR)
+        self.lblDropChance = gui.Label('Lasigeblo: 0 (0%)', color=UI_FONT_COLOR)
         self.td(self.lblDropChance)
 
         self.tr()
@@ -254,11 +254,11 @@ class NPCCombatControl(gui.Table):
         self.td(gui.Spacer(10, 10))
 
         self.tr()
-        self.lblDropItem = gui.Label('Premia ero: Nenio', color=UI_FONT_COLOR)
+        self.lblDropItem = gui.Label('Lasigi objekton: Neniu', color=UI_FONT_COLOR)
         self.td(self.lblDropItem)
 
         self.tr()
-        e = gui.Button("Elektu eron...", width=100)
+        e = gui.Button("Elektu objekton...", width=100)
         e.connect(gui.CLICK, openItemDialog.openDialog, None)
         self.td(e, colspan=2)
 
@@ -266,7 +266,7 @@ class NPCCombatControl(gui.Table):
         self.td(gui.Spacer(10, 10))
 
         self.tr()
-        self.lblDropItemVal = gui.Label('Valoro de premia ero: 1', color=UI_FONT_COLOR)
+        self.lblDropItemVal = gui.Label('Kvanto da lasigita objekto: 1', color=UI_FONT_COLOR)
         self.td(self.lblDropItemVal)
 
         self.tr()
@@ -279,16 +279,16 @@ class NPCCombatControl(gui.Table):
 
     def updateLabelDropChance(self, value):
         if value.value != 0:
-            self.lblDropChance.set_text('Hazardo por ricevi premian eron: ' + str(value.value) + ' (' + str(round(1./value.value*100, 1)) +'%)')
+            self.lblDropChance.set_text('Lasigeblo: ' + str(value.value) + ' (' + str(round(1./value.value*100, 1)) +'%)')
 
         else:
-            self.lblDropChance.set_text('Hazardo por ricevi premian eron: 0 (0%)')
+            self.lblDropChance.set_text('Lasigeblo: 0 (0%)')
 
     def selectDropItem(self, value):
-        self.lblDropItem.set_text('Premia ero: ' + str(value))
+        self.lblDropItem.set_text('Lasigi objekton: ' + str(value))
 
     def updateLabelDropItemVal(self, value):
-        self.lblDropItemVal.set_text('Valoro de premia ero: ' + str(value.value))
+        self.lblDropItemVal.set_text('Kvanto da lasigita objekto: ' + str(value.value))
 
 class NPCStatsControl(gui.Table):
     def __init__(self, **params):
@@ -300,7 +300,7 @@ class NPCStatsControl(gui.Table):
         self.td(gui.Spacer(10, 20))
 
         self.tr()
-        self.lblStr = gui.Label('Forteco: 0', color=UI_FONT_COLOR)
+        self.lblStr = gui.Label('Forto: 0', color=UI_FONT_COLOR)
         self.td(self.lblStr)
 
         self.tr()
@@ -345,7 +345,7 @@ class NPCStatsControl(gui.Table):
         self.td(e)
 
     def updateLabelStr(self, value):
-        self.lblStr.set_text('Foreco: ' + str(value.value))
+        self.lblStr.set_text('Forto: ' + str(value.value))
 
     def updateLabelDef(self, value):
         self.lblDef.set_text('Defenso: ' + str(value.value))
@@ -375,7 +375,7 @@ class NPCEditorContainer(gui.Container):
         self.tTitle = gui.Table(width=272, height=32)
 
         self.tTitle.tr()
-        self.tTitle.td(gui.Label("Redaktilo de NPC", name='npcTitle', color=UI_FONT_COLOR))
+        self.tTitle.td(gui.Label("NLR editilo", name='npcTitle', color=UI_FONT_COLOR))
 
         # buttons
         self.t = gui.Table(width=272, height=50)
@@ -384,7 +384,7 @@ class NPCEditorContainer(gui.Container):
         e.connect(gui.CLICK, self.toggleGeneral, None)
         self.t.td(e)
 
-        e = gui.Button("Batala", width=70)
+        e = gui.Button("Batalo", width=70)
         e.connect(gui.CLICK, self.toggleCombat, None)
         self.t.td(e)
 
@@ -402,7 +402,7 @@ class NPCEditorContainer(gui.Container):
         self.tBottom = gui.Table(width=272, height=200)
 
         self.tBottom.tr()
-        self.saveButton = gui.Button("Add NPC", width=100, height=40)
+        self.saveButton = gui.Button("Aldoni na NLR", width=100, height=40)
         self.saveButton .connect(gui.CLICK, self.saveNPC, None)
         self.tBottom.td(self.saveButton)
 
@@ -444,7 +444,7 @@ class NPCEditorContainer(gui.Container):
         self.npcStatsCtrl.value['selDataSpd'].value = NPC[npcNum].stat[Stats.speed]
 
         # change save button
-        self.saveButton.value = 'Save NPC'
+        self.saveButton.value = 'Konservi na NLR'
 
         # update npcNum
         self.npcNum = npcNum
@@ -520,7 +520,7 @@ class NPCEditorContainer(gui.Container):
         self.npcStatsCtrl.value['selDataSpd'].value = 0
 
         # change save button
-        self.saveButton.value = 'Aldoni NPC'
+        self.saveButton.value = 'Aldoni na NLR'
 
         # update npcNum
         self.npcNum = None

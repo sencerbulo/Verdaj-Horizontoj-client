@@ -49,7 +49,7 @@ class gameClientProtocol(LineReceiver):
         # handle base64 data
         decodedData = base64.b64decode(data)
 
-        log("Received data from server")
+        log("Ricevis datumojn el servilo")
         log(" -> " + decodedData)
 
         dataHandler.handleData(decodedData)
@@ -65,21 +65,21 @@ class gameClientFactory(ClientFactory):
         self.protocol = p = gameClientProtocol(self)
 
     def startedConnecting(self, connector):
-        log("Connecting to server...")
+        log("Konektas al servilo...")
 
     def buildProtocol(self, addr):
         return self.protocol
 
     def clientConnectionFailed(self, connector, reason):
         errorMsg = reason.getErrorMessage().split(':')
-        alertMessageDialog('Unable to connect to server: ' + errorMsg[1] + errorMsg[2], 'An error occured')
+        alertMessageDialog('La konekto al servilo fiaskis.: ' + errorMsg[1] + errorMsg[2], 'Eraro okazis')
         print reason.getErrorMessage()
 
     def clientConnectionLost(self, connector, reason):
         print reason.getErrorMessage()
         try:
             #reactor.stop()
-            log("Disconnection from server")
+            log("Vi estis malkonektita el servilo")
         except error.ReactorNotRunning:
             pass
 

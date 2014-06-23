@@ -27,12 +27,12 @@ GUI_SHOPEDITOR = 7
 
 class QuitDialog(gui.Dialog):
     def __init__(self, **params):
-        title = gui.Label(_("Eliri ludon"))
+        title = gui.Label(_("Forlasi la ludon"))
 
         t = gui.Table()
 
         t.tr()
-        t.td(gui.Label(_("Cxu vi volas eliri?")), colspan=2)
+        t.td(gui.Label(_("Cxu vi volas forlasi?")), colspan=2)
 
         t.tr()
         t.td(gui.Spacer(10, 20))
@@ -178,7 +178,7 @@ class uiContainer(gui.Container):
         self.tBottom.td(e)
 
         self.tBottom.tr()
-        e = gui.Button(_('Libro de ensorcxoj'), width=100, height=40)
+        e = gui.Button(_('Sorcxlibro'), width=100, height=40)
         e.connect(gui.CLICK, self.toggleSpellbook, None)
         self.tBottom.td(e, colspan=2)
 
@@ -206,7 +206,7 @@ class uiContainer(gui.Container):
 
     def toggleSpellbook(self, value):
         self.engine.setState(GUI_SPELLBOOK)
-        self.updateTitle(_('Libro de ensorcxoj'))
+        self.updateTitle(_('Sorcxlibro'))
         g.tcpConn.sendRequestSpells()
 
     def toggleSettings(self, value):
@@ -575,24 +575,28 @@ class GameGUI():
         font = g.nameFont
         fontColor = (251, 230, 204)
 
-        label = font.render('FORT - ' + str(getPlayerStat(g.myIndex, Stats.strength)), 0, fontColor)
+	# Forto
+        label = font.render('FOR - ' + str(getPlayerStat(g.myIndex, Stats.strength)), 0, fontColor)
         labelRect = label.get_rect()
         labelRect.centerx = 590
         labelRect.centery = 150
         g.guiSurface.blit(label, labelRect)
 
+	# Defendo
         label = font.render('DEF - ' + str(getPlayerStat(g.myIndex, Stats.defense)), 0, fontColor)
         labelRect = label.get_rect()
         labelRect.centerx = 590
         labelRect.centery = 170
         g.guiSurface.blit(label, labelRect)
 
+	# Rapido
         label = font.render('RAP - ' + str(getPlayerStat(g.myIndex, Stats.speed)), 0, fontColor)
         labelRect = label.get_rect()
         labelRect.centerx = 705
         labelRect.centery = 150
         g.guiSurface.blit(label, labelRect)
 
+	# Magio
         label = font.render('MAG - ' + str(getPlayerStat(g.myIndex, Stats.magic)), 0, fontColor)
         labelRect = label.get_rect()
         labelRect.centerx = 705
@@ -976,19 +980,19 @@ class GameGUI():
                 nameColor = textColor.WHITE
 
                 # create strings
-                strReqMp = str(Spell[spellNum].reqMp) + _(' Mana')
+                strReqMp = str(Spell[spellNum].reqMp) + _(' Magieroj')
                 if spellType == SPELL_TYPE_ADDHP:
-                    strEffect = 'Efekto: +' + str(Spell[spellNum].data1) + ' HP'
+                    strEffect = 'Efiko: +' + str(Spell[spellNum].data1) + ' VE' #Viveroj
                 elif spellType == SPELL_TYPE_ADDMP:
-                    strEffect = 'Efekto: +' + str(Spell[spellNum].data1) + ' MP'
+                    strEffect = 'Efiko: +' + str(Spell[spellNum].data1) + ' ME' #Magieroj
                 elif spellType == SPELL_TYPE_ADDSP:
-                    strEffect = 'Efekto: +' + str(Spell[spellNum].data1) + ' SP'
+                    strEffect = 'Efiko: +' + str(Spell[spellNum].data1) + ' SE' #Stateroj
                 elif spellType == SPELL_TYPE_SUBHP:
-                    strEffect = 'Efekto: -' + str(Spell[spellNum].data1) + ' HP'
+                    strEffect = 'Efiko: -' + str(Spell[spellNum].data1) + ' VE'
                 elif spellType == SPELL_TYPE_SUBMP:
-                    strEffect = 'Efekto: -' + str(Spell[spellNum].data1) + ' MP'
+                    strEffect = 'Efiko: -' + str(Spell[spellNum].data1) + ' ME'
                 elif spellType == SPELL_TYPE_SUBSP:
-                    strEffect = 'Efekto: -' + str(Spell[spellNum].data1) + ' SP'
+                    strEffect = 'Efiko: -' + str(Spell[spellNum].data1) + ' SE'
 
                 strReqMpSize = g.tooltipFont.size(strReqMp)
                 strEffectSize = g.tooltipFont.size(strEffect)

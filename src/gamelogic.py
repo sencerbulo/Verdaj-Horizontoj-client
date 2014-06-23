@@ -68,10 +68,11 @@ def handleMsg(text):
 
             if command[0] == "/help":
                 addText(_("Socialaj Komandoj:"), helpColor)
-                addText(_("  'Mesagxo = Dissenda mesagxo"), helpColor)
-                addText(_("  -Mesagxo = Emocia mesagxo"), helpColor)
-                addText(_("  !nomo Mesagxo = Ludanto mesagxo"), helpColor)
+                addText(_("  'Mesagxo = Elsenda mesagxo"), helpColor) # Broadcast Message
+                addText(_("  -Mesagxo = Emocia mesagxo"), helpColor) # Emote Message
+                addText(_("  !nomo Mesagxo = Privata mesagxo"), helpColor) # Player (Private) Message
                 addText(_("Uzeblaj Komandoj: /help, /info, /who, /fps, /inv, /stats, /train, /trade, /party, /join, /leave, /resetui"), helpColor)
+		# helpo, informo, kiu, bps, inventaro, statoj, partio, aligxi, forlasi, reagordifasado
 
             if command[0] == "/info":
                 if len(command) <= 1:
@@ -102,16 +103,19 @@ def handleMsg(text):
             #################
 
             ''' shows a list of admin commands '''
-            if command[0] == "/admin":
+            if command[0] == "/admin": # administranto
                 if getPlayerAccess(g.myIndex) < ADMIN_MONITOR:
                     addText(_("Vi devas esti plu alta administranto por fari cxi tiu!"), alertColor)
                     return
 
                 addText(_("Socialaj Komandoj:"), helpColor)
-                addText(_('  \"mesagxo = Universala mesagxo de administrantoj'), helpColor)
-                addText(_("  =mesagxo  = Privata mesagxo de administrantoj"), helpColor)
+                addText(_('  \"mesagxo = Tutmonda elsendo'), helpColor) #Global admin message / Global broadcast
+                addText(_("  =mesagxo  = Privata administranta kanalo"), helpColor) #Private admin message / private admin channel
                 addText(_("  !nomo mesagxo = Ludanto mesagxo"), helpColor)
                 addText(_("Available Commands: /admin, /loc, /mapeditor, /warpmeto, /warptome, /warpto, /setsprite, /giveitem, /mapreport, /kick, /ban, /edititem, /respawn, /editnpc, /motd, /editshop, /editspell, /debug"), helpColor)
+		# administranto, loko, mapeditilo, transloki min al, transloki al mi, transloki al mi, agori bildeton, doni objekton,
+		# map raporto, eljxeti, malpermesi, redakti objekton, reaperi, redakti NLR, mdlt / ctm, redakti vendejo,
+		# redakti sorcxo, gxustigi
 
             if command[0] == "/kick":
                 if getPlayerAccess(g.myIndex) < ADMIN_MONITOR:
@@ -201,7 +205,7 @@ def handleMsg(text):
                     # warpTo
                     g.tcpConn.warpTo(n)
                 else:
-                    addText("Malvalida mapo nombro.", textColor.RED)
+                    addText("La mapa indekso nevalidas.", textColor.RED)
 
             ''' sets the admin sprite '''
             if command[0] == "/setsprite":
@@ -238,14 +242,14 @@ def handleMsg(text):
             ###################
 
             ''' enables the map editor '''
-            if command[0] == "/itemeditor":
+            if command[0] == "/itemeditor": #ero editilo
                 if getPlayerAccess(g.myIndex) < ADMIN_DEVELOPER:
                     addText("Vi devas esti plu alta administranto por fari cxi tiu!", alertColor)
                     return
 
                 g.tcpConn.sendRequestEditItem()
 
-            if command[0] == '/spelleditor':
+            if command[0] == '/spelleditor': #sorcxo editilo
                 if getPlayerAccess(g.myIndex) < ADMIN_DEVELOPER:
                     addText("Vi devas esti plu alta administranto por fari cxi tiu!", alertColor)
                     return
@@ -253,7 +257,7 @@ def handleMsg(text):
                 g.tcpConn.sendRequestEditSpell()
 
             ''' enables the npc editor '''
-            if command[0] == '/npceditor':
+            if command[0] == '/npceditor': #NLR editilo
                 if getPlayerAccess(g.myIndex) < ADMIN_DEVELOPER:
                     addText("Vi devas esti plu alta administranto por fari cxi tiu!", alertColor)
                     return
@@ -261,7 +265,7 @@ def handleMsg(text):
                 g.tcpConn.sendRequestEditNpc()
 
             ''' gives an item to a player '''
-            if command[0] == '/giveitem':
+            if command[0] == '/giveitem': #doni objekton
                 if getPlayerAccess(g.myIndex) < ADMIN_DEVELOPER:
                     addText("Vi devas esti plu alta administranto por fari cxi tiu!", alertColor)
                     return
@@ -280,7 +284,7 @@ def handleMsg(text):
             # CREATOR ADMIN #
             #################
 
-            if command[0] == '/setaccess':
+            if command[0] == '/setaccess': #agordi aliro
                 if getPlayerAccess(g.myIndex) < ADMIN_CREATOR:
                     addText("Vi devas esti plu alta administranto por fari cxi tiu!", alertColor)
                     return
@@ -568,10 +572,10 @@ def castSpell(spellNum):
                     Player[g.myIndex].castedSpell = True
 
             else:
-                addText(_('Vi ne povas jxeti kiam vi promenas!'), textColor.BRIGHT_RED)
+                addText(_('Ne eblas jxeti la sorcxon dum irado'), textColor.BRIGHT_RED)
 
     else:
-        addText(_('Ne ensorcxo cxi tie.'), textColor.BRIGHT_RED)
+        addText(_('Estas neniu ensorcxo cxi tie'), textColor.BRIGHT_RED)
 
 def setSpellbookHotkey(slotNum, key):
     if key in g.SPELLBOOK_HOTKEYS:

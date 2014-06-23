@@ -40,7 +40,7 @@ DEBUGGING = False
 ###############################################
 
 # general constants
-GAME_NAME = "PyORPG"  # the game name
+GAME_NAME = "Verdaj Horizontoj"  # the game name
 GAME_PORT = 2727      # the game port
 MAX_PLAYERS = 70      # the maximum amount of (online) players allowed in the game
 MAX_ITEMS = 255       # the total maximum amount of items allowed in the game

@@ -9,7 +9,7 @@ def loadImage(filename):
         image = pygame.image.load(filename).convert_alpha()
         image = pygame.transform.scale(image, (image.get_width() * 2, image.get_height() * 2))
     except pygame.error:
-        raise SystemExit, "Unable to load: " + filename
+        raise SystemExit, filename + " ne sukcesis sxargxi" # "Unable to load: " + filename
     return image.convert_alpha()
     
 def loadSlicedSprites(w, h, row, filename):

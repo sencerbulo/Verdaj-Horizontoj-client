@@ -18,12 +18,12 @@ class OpenItemDialog(gui.Dialog):
 
         self._count = 0
 
-        title = gui.Label("Malfermi eron")
+        title = gui.Label("Sxagxi objekton")
 
         t = gui.Table()
 
         t.tr()
-        t.td(gui.Label('Elekti eron:'), colspan=2)
+        t.td(gui.Label('Elekti objekton:'), colspan=2)
 
         t.tr()
         t.td(gui.Spacer(10, 20))
@@ -36,7 +36,7 @@ class OpenItemDialog(gui.Dialog):
         t.td(gui.Spacer(10, 20))
 
         t.tr()
-        e = gui.Button(_('Malfermi eron'))
+        e = gui.Button(_('Malfermi objekton'))
         e.connect(gui.CLICK, self.openItem, None)
         t.td(e)
 
@@ -85,7 +85,7 @@ class DataEquipment(gui.Table):
         gui.Table.__init__(self, **params)
 
         self.tr()
-        self.lblDur = gui.Label(_('Fortikeco: 0'), color=UI_FONT_COLOR)
+        self.lblDur = gui.Label(_('Dauxrado: 0'), color=UI_FONT_COLOR)
         self.td(self.lblDur)
 
         self.tr()
@@ -97,7 +97,7 @@ class DataEquipment(gui.Table):
         self.td(gui.Spacer(10, 20))
 
         self.tr()
-        self.lblStr = gui.Label('Forteco: 0', color=UI_FONT_COLOR)
+        self.lblStr = gui.Label('Forto: 0', color=UI_FONT_COLOR)
         self.td(self.lblStr)
 
         self.tr()
@@ -106,10 +106,10 @@ class DataEquipment(gui.Table):
         self.td(e)
 
     def updateLabelStr(self, value):
-        self.lblStr.set_text('Forteco: ' + str(value.value))
+        self.lblStr.set_text('Forto: ' + str(value.value))
 
     def updateLabelDur(self, value):
-        self.lblDur.set_text('Fortikeco: ' + str(value.value))
+        self.lblDur.set_text('Dauxrado: ' + str(value.value))
 
 
 class DataPotion(gui.Table):
@@ -136,7 +136,7 @@ class DataSpell(gui.Table):
         gui.Table.__init__(self, **params)
 
         self.tr()
-        self.lblSpell = gui.Label('Ensorcxo: uzu la sxovilon', color=UI_FONT_COLOR)
+        self.lblSpell = gui.Label('Sorcxo: uzu la sxovilon', color=UI_FONT_COLOR)
         self.td(self.lblSpell)
 
         self.tr()
@@ -145,7 +145,7 @@ class DataSpell(gui.Table):
         self.td(e)
 
     def updateSpellName(self, value):
-        self.lblSpell.set_text('Ensorcxo: ' + str(value.value))
+        self.lblSpell.set_text('Sorcxo: ' + str(value.value))
 
 
 class ItemEditorContainer(gui.Container):
@@ -170,38 +170,38 @@ class ItemEditorContainer(gui.Container):
         self.tTitle = gui.Table(width=272, height=32)
 
         self.tTitle.tr()
-        self.tTitle.td(gui.Label(_("Redaktilo de eroj"), name='itemTitle', color=UI_FONT_COLOR))
+        self.tTitle.td(gui.Label(_("Objekteditilo"), name='itemTitle', color=UI_FONT_COLOR))
 
         # content
         self.tContent = gui.Table(width=272, height=123)
 
         self.tContent.tr()
-        e = gui.Button(_("Malfermi ero..."), width=100)
+        e = gui.Button(_("Malfermi objekton..."), width=100)
         e.connect(gui.CLICK, openItemDialog.openDialog, None)
         self.tContent.td(e, colspan=2)
 
         self.tContent.tr()
-        self.tContent.td(gui.Label(_('Nomo de ero:'), color=UI_FONT_COLOR), colspan=2)
+        self.tContent.td(gui.Label(_('Objektnomo:'), color=UI_FONT_COLOR), colspan=2)
         self.tContent.tr()
         self.tContent.td(gui.Input('', size=26, name='inpItemName'), colspan=2, valign=-1)
 
         self.tContent.tr()
-        self.tContent.td(gui.Label('Tipo de ero:', color=UI_FONT_COLOR))
+        self.tContent.td(gui.Label('Objektspeco:', color=UI_FONT_COLOR))
         e = gui.Select(name='selItemType')
-        e.add('Nenia', 0)
+        e.add('Neniu', 0)
         e.add('Armilo', 1)
         e.add('Armajxo', 2)
         e.add('Kasko', 3)
         e.add('Sxildo', 4)
-        e.add('Kuracilo (+HP)', 5)
-        e.add('Kuracilo (+MP)', 6)
-        e.add('Kuracilo (+SP)', 7)
-        e.add('Kuracilo (-HP)', 8)
-        e.add('Kuracilo (-MP)', 9)
-        e.add('Kuracilo (-SP)', 10)
-        e.add('Sxlosila', 11)
-        e.add('Valuto', 12)
-        e.add('Ensorcxo', 13)
+        e.add('Pocio (+VE)', 5) #Potions
+        e.add('Pocio (+MP)', 6)
+        e.add('Pocio (+SE)', 7)
+        e.add('Pocio (-VE)', 8)
+        e.add('Pocio (-ME)', 9)
+        e.add('Pocio (-SE)', 10)
+        e.add('Sxlosilo', 11)
+        e.add('Mono', 12)
+        e.add('Sorcxo', 13)
         e.value = 0
         e.connect(gui.CHANGE, self.updateType, None)
         self.tContent.td(e)
@@ -213,7 +213,7 @@ class ItemEditorContainer(gui.Container):
         self.tBottom = gui.Table(width=272, height=200)
 
         self.tBottom.tr()
-        self.saveButton = gui.Button("Aldoni eron", width=100, height=40)
+        self.saveButton = gui.Button("Aldoni objekton", width=100, height=40)
         self.saveButton .connect(gui.CLICK, self.saveItem, None)
         self.tBottom.td(self.saveButton)
 
@@ -249,7 +249,7 @@ class ItemEditorContainer(gui.Container):
             self.value['selDataSpell'].value = int(0 if Item[itemNum].data1 is None else Item[itemNum].data1)
 
         # rename save button
-        self.saveButton.value = 'Konservi eron'
+        self.saveButton.value = 'Konservi objekton'
 
         # update item num
         self.itemNum = itemNum
