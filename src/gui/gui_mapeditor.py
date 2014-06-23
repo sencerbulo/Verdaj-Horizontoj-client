@@ -17,17 +17,22 @@ PLACE_ITEM  = 4
 
 UI_FONT_COLOR = (251, 230, 204)
 
+# Font hack
+import os
+dataPath = os.path.join('..', 'data')
+HAPPY_FONT_TIME = pygame.font.Font(dataPath + '/fonts/ConsolaMono-Bold.ttf', 13)
+
 class EmptyFieldAlertDialog(gui.Dialog):
     def __init__(self, **params):
-        title = gui.Label("Eraro")
+        title = gui.Label("Eraro", font=HAPPY_FONT_TIME)
 
         t = gui.Table()
 
         t.tr()
-        e = gui.Button('Elekti mapon')
+        e = gui.Button('Elekti mapon', font=HAPPY_FONT_TIME)
         t.td(e)
 
-        e = gui.Button('Rezigni')
+        e = gui.Button('Rezigni', font=HAPPY_FONT_TIME)
         e.connect(gui.CLICK, self.close, None)
         t.td(e)
 
@@ -60,11 +65,11 @@ class MapSelectorDialog(gui.Dialog):
         t.td(gui.Spacer(10, 20))
 
         t.tr()
-        e = gui.Button('Elektu la mapon')
+        e = gui.Button('Elektu la mapon', font=HAPPY_FONT_TIME)
         e.connect(gui.CLICK, self.setInput, None)
         t.td(e)
 
-        e = gui.Button('Rezigni')
+        e = gui.Button('Rezigni', font=HAPPY_FONT_TIME)
         e.connect(gui.CLICK, self.close, None)
         t.td(e)
 
@@ -129,11 +134,11 @@ class OpenItemDialog(gui.Dialog):
         t.td(gui.Spacer(10, 20))
 
         t.tr()
-        e = gui.Button('Malfermi objekton')
+        e = gui.Button('Malfermi objekton', font=HAPPY_FONT_TIME)
         e.connect(gui.CLICK, self.openItem, None)
         t.td(e)
 
-        e = gui.Button('Rezigni')
+        e = gui.Button('Rezigni', font=HAPPY_FONT_TIME)
         e.connect(gui.CLICK, self.close, None)
         t.td(e)
 
@@ -178,12 +183,12 @@ class OpenNPCDialog(gui.Dialog):
 
         self._count = 0
 
-        title = gui.Label(u"Ŝarĝi na NLR")
+        title = gui.Label(u"Ŝarĝi na NLR", font=HAPPY_FONT_TIME)
 
         t = gui.Table()
 
         t.tr()
-        t.td(gui.Label('Elektu na NLR:'), colspan=2)
+        t.td(gui.Label('Elektu na NLR:', font=HAPPY_FONT_TIME), colspan=2)
 
         t.tr()
         t.td(gui.Spacer(10, 20))
@@ -196,11 +201,11 @@ class OpenNPCDialog(gui.Dialog):
         t.td(gui.Spacer(10, 20))
 
         t.tr()
-        e = gui.Button('Aldoni na NLR')
+        e = gui.Button('Aldoni na NLR', font=HAPPY_FONT_TIME)
         e.connect(gui.CLICK, self.openNPC, None)
         t.td(e)
 
-        e = gui.Button('Rezigni')
+        e = gui.Button('Rezigni', font=HAPPY_FONT_TIME)
         e.connect(gui.CLICK, self.close, None)
         t.td(e)
 
@@ -251,35 +256,35 @@ class propertiesControl(gui.Table):
         self.value = gui.Form()
 
         self.tr()
-        self.td(gui.Label("Mapnomo:", color=UI_FONT_COLOR))
-        self.td(gui.Input("", size=16, name="inpMapName"))
+        self.td(gui.Label("Mapnomo:", color=UI_FONT_COLOR, font=HAPPY_FONT_TIME))
+        self.td(gui.Input("", size=16, name="inpMapName", font=HAPPY_FONT_TIME))
 
         self.tr()
-        self.td(gui.Label("Transolki norden:", color=UI_FONT_COLOR))
-        self.td(gui.Input("0", size=4, name="inpMapUp"))
+        self.td(gui.Label("Transolki norden:", color=UI_FONT_COLOR, font=HAPPY_FONT_TIME))
+        self.td(gui.Input("0", size=4, name="inpMapUp", font=HAPPY_FONT_TIME))
 
         self.tr()
-        self.td(gui.Label("Transolki suden:", color=UI_FONT_COLOR))
-        self.td(gui.Input("0", size=4, name="inpMapDown"))
+        self.td(gui.Label("Transolki suden:", color=UI_FONT_COLOR, font=HAPPY_FONT_TIME))
+        self.td(gui.Input("0", size=4, name="inpMapDown", font=HAPPY_FONT_TIME))
 
         self.tr()
-        self.td(gui.Label("Transolki okcidenten:", color=UI_FONT_COLOR))
-        self.td(gui.Input("0", size=4, name="inpMapLeft"))
+        self.td(gui.Label("Transolki okcidenten:", color=UI_FONT_COLOR, font=HAPPY_FONT_TIME))
+        self.td(gui.Input("0", size=4, name="inpMapLeft", font=HAPPY_FONT_TIME))
 
         self.tr()
-        self.td(gui.Label("Transolki orienten:", color=UI_FONT_COLOR))
-        self.td(gui.Input("0", size=4, name="inpMapRight"))
+        self.td(gui.Label("Transolki orienten:", color=UI_FONT_COLOR, font=HAPPY_FONT_TIME))
+        self.td(gui.Input("0", size=4, name="inpMapRight", font=HAPPY_FONT_TIME))
 
         self.tr()
         self.td(gui.Spacer(10, 10))
 
         # npc list
         self.tr()
-        e = gui.Button('Aldoni na NLR...', width=80)
+        e = gui.Button('Aldoni na NLR...', width=80, font=HAPPY_FONT_TIME)
         e.connect(gui.CLICK, openNpcDialog.openDialog, None)
         self.td(e)
 
-        e = gui.Button('Demeti', width=80)
+        e = gui.Button('Demeti', width=80, font=HAPPY_FONT_TIME)
         e.connect(gui.CLICK, self.removeNpc, None)
         self.td(e)
 
@@ -347,18 +352,18 @@ class placeTileControl(gui.Table):
         self.tr()
         g = gui.Group(name="grpTileType")
 
-        self.td(gui.Label("Tereno", color=UI_FONT_COLOR))
+        self.td(gui.Label("Tereno", color=UI_FONT_COLOR, font=HAPPY_FONT_TIME))
         self.td(gui.Spacer(10, 0))
         e = gui.Radio(g, value=1)
         e.click()
         self.td(e)
 
         self.tr()
-        self.td(gui.Label(u"Franĝo", color=UI_FONT_COLOR))
+        self.td(gui.Label(u"Franĝo", color=UI_FONT_COLOR, font=HAPPY_FONT_TIME))
         self.td(gui.Spacer(10, 0))
         self.td(gui.Radio(g, value=2))
 
-        e = gui.Select(name='selTileType')
+        e = gui.Select(name='selTileType', font=HAPPY_FONT_TIME)
         e.add('Tavolo 1', 0)
         e.add('Tavolo 2', 1)
         e.add('Tavolo 3', 2)
@@ -374,11 +379,23 @@ class placeBlockControl(gui.Table):
         self.value = gui.Form()
 
         self.tr()
-        label = gui.Label(u"Alklaku maldekstre por aldoni blokaĵon", color=UI_FONT_COLOR)
+        label = gui.Label(u"Alklaku maldekstre", color=UI_FONT_COLOR, font=HAPPY_FONT_TIME)
         self.td(label)
 
         self.tr()
-        label = gui.Label(u"Alklaku dekstre por demeti blokaĵon", color=UI_FONT_COLOR)
+        label = gui.Label(u"por aldoni blokaĵon", color=UI_FONT_COLOR, font=HAPPY_FONT_TIME)
+        self.td(label)
+
+        self.tr()
+        label = gui.Label(u"", color=UI_FONT_COLOR, font=HAPPY_FONT_TIME)
+        self.td(label)
+
+        self.tr()
+        label = gui.Label(u"Alklaku dekstre ", color=UI_FONT_COLOR, font=HAPPY_FONT_TIME)
+        self.td(label)
+
+        self.tr()
+        label = gui.Label(u"por demeti blokaĵon", color=UI_FONT_COLOR, font=HAPPY_FONT_TIME)
         self.td(label)
 
 
@@ -389,10 +406,10 @@ class placeWarpControl(gui.Table):
         self.value = gui.Form()
 
         self.tr()
-        self.td(gui.Label("Mapidentigo: ", color=UI_FONT_COLOR), colspan=2)
+        self.td(gui.Label("Mapidentigo: ", color=UI_FONT_COLOR, font=HAPPY_FONT_TIME), colspan=2)
 
         self.tr()
-        self.inpMapID = gui.Input('0', size=8, name='inpWarpMapID')
+        self.inpMapID = gui.Input('0', size=8, name='inpWarpMapID', font=HAPPY_FONT_TIME)
         self.td(self.inpMapID, colspan=2)
 
         # used for selecting the map - todo
@@ -407,25 +424,37 @@ class placeWarpControl(gui.Table):
         self.td(gui.Spacer(10, 20))
 
         self.tr()
-        self.td(gui.Label("Transloki al situo", color=UI_FONT_COLOR), colspan=2)
+        self.td(gui.Label("Transloki al situo", color=UI_FONT_COLOR, font=HAPPY_FONT_TIME), colspan=2)
 
         self.tr()
-        self.td(gui.Label("X: ", color=UI_FONT_COLOR))
+        self.td(gui.Label("X: ", color=UI_FONT_COLOR, font=HAPPY_FONT_TIME))
         self.td(gui.Input("0", size=4, name="inpWarpX"))
 
         self.tr()
-        self.td(gui.Label("Y: ", color=UI_FONT_COLOR))
+        self.td(gui.Label("Y: ", color=UI_FONT_COLOR, font=HAPPY_FONT_TIME))
         self.td(gui.Input("0", size=4, name="inpWarpY"))
 
         self.tr()
         self.td(gui.Spacer(10, 20))
 
         self.tr()
-        label = gui.Label("Klaku maldekstren por aldoni translokadon", color=UI_FONT_COLOR)
+        label = gui.Label("Alklaku maldekstren", color=UI_FONT_COLOR, font=HAPPY_FONT_TIME)
         self.td(label, colspan=2)
 
         self.tr()
-        label = gui.Label("Klaku dekstren por demeti translokadon", color=UI_FONT_COLOR)
+        label = gui.Label("por aldoni translokadon", color=UI_FONT_COLOR, font=HAPPY_FONT_TIME)
+        self.td(label, colspan=2)
+
+        self.tr()
+        label = gui.Label("", color=UI_FONT_COLOR, font=HAPPY_FONT_TIME)
+        self.td(label, colspan=2)
+
+        self.tr()
+        label = gui.Label("Alklaku dekstren", color=UI_FONT_COLOR, font=HAPPY_FONT_TIME)
+        self.td(label, colspan=2)
+
+        self.tr()
+        label = gui.Label("por demeti translokadon", color=UI_FONT_COLOR, font=HAPPY_FONT_TIME)
         self.td(label, colspan=2)
 
         # initialize the alert dialog
@@ -446,7 +475,7 @@ class placeItemControl(gui.Table):
         openItemDialog = OpenItemDialog(self)
 
         self.tr()
-        e = gui.Button("Malfermi eron...", width=100)
+        e = gui.Button("Malfermi objekton...", width=100, font=HAPPY_FONT_TIME)
         e.connect(gui.CLICK, openItemDialog.openDialog, None)
         self.td(e)
 
@@ -454,7 +483,7 @@ class placeItemControl(gui.Table):
         self.td(gui.Spacer(10, 20))
 
         self.tr()
-        self.td(gui.Label('Elektu objekton por generi', color=UI_FONT_COLOR, name='lblItemName'))
+        self.td(gui.Label('Elektu objekton por generi', color=UI_FONT_COLOR, name='lblItemName', font=HAPPY_FONT_TIME))
 
         self.tr()
         self.td(gui.Spacer(10, 80))
@@ -496,30 +525,30 @@ class MapEditorContainer(gui.Container):
         self.tTitle = gui.Table(width=272, height=32)
 
         self.tTitle.tr()
-        self.tTitle.td(gui.Label("Mapeditilo", name='mapTitle', color=UI_FONT_COLOR))
+        self.tTitle.td(gui.Label("Mapeditilo", name='mapTitle', color=UI_FONT_COLOR, font=HAPPY_FONT_TIME))
 
         # buttons
         self.t = gui.Table(width=272, height=50)
 
         self.t.tr()
-        e = gui.Button("Mapecoj", width=200)
+        e = gui.Button("Mapecoj", width=200, font=HAPPY_FONT_TIME)
         e.connect(gui.CLICK, self.toggleProperties, None)
         self.t.td(e, colspan=4)
 
         self.t.tr()
-        e = gui.Button("Kahelo", width=40)
+        e = gui.Button("KAHELO", width=40, font=HAPPY_FONT_TIME)
         e.connect(gui.CLICK, self.toggleTile, None)
         self.t.td(e)
 
-        e = gui.Button(u"Blokaĵo", width=40)
+        e = gui.Button(u"BLOK", width=40, font=HAPPY_FONT_TIME)
         e.connect(gui.CLICK, self.toggleBlock, None)
         self.t.td(e)
 
-        e = gui.Button("Transloki", width=40)
+        e = gui.Button("TRANSLOK", width=40, font=HAPPY_FONT_TIME)
         e.connect(gui.CLICK, self.toggleWarp, None)
         self.t.td(e)
 
-        e = gui.Button("Objekto", width=40)
+        e = gui.Button("OBJ", width=40, font=HAPPY_FONT_TIME)
         e.connect(gui.CLICK, self.toggleItem, None)
         self.t.td(e)
 
@@ -528,11 +557,11 @@ class MapEditorContainer(gui.Container):
         self.tBottom = gui.Table(width=272, height=200)
 
         self.tBottom.tr()
-        e = gui.Button("Konservi", width=100, height=40)
+        e = gui.Button("Konservi", width=100, height=40, font=HAPPY_FONT_TIME)
         e.connect(gui.CLICK, self.saveMap, None)
         self.tBottom.td(e)
 
-        e = gui.Button("Rezigni", width=100, height=40)
+        e = gui.Button("Rezigni", width=100, height=40, font=HAPPY_FONT_TIME)
         e.connect(gui.CLICK, self.cancelMap, None)
         self.tBottom.td(e)
 
@@ -691,8 +720,10 @@ class MapEditorGUI():
         g.gameEngine.graphicsEngine.gameGUI.guiContainer.mapEditorControl.toggleProperties(None)
 
         # write hotkeys
-        addText(u'Konsilio: Tenu SHIFT dum la meto de kahelo por ŝtopi la tutan tavolon.', textColor.YELLOW)
-        addText('Konsilio: Tenu CTRL dum la demeto de kahelo por vakigi la tutan tavolon.', textColor.YELLOW)
+        addText(u'Konsilio: Tenu SHIFT dum la meto', textColor.YELLOW)
+        addText(u'          de kahelo por sxtopi la tutan tavolon.', textColor.YELLOW)
+        addText('Konsilio: Tenu CTRL dum la demeto', textColor.YELLOW)
+        addText('          de kahelo por vakigi la tutan tavolon.', textColor.YELLOW)
 
         self.draw()
 

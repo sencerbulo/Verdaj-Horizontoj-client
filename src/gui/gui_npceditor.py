@@ -9,6 +9,11 @@ from resourcemanager import ResourceManager
 from constants import *
 import global_vars as g
 
+# Font hack
+import os
+dataPath = os.path.join('..', 'data')
+HAPPY_FONT_TIME = pygame.font.Font(dataPath + '/fonts/ConsolaMono-Bold.ttf', 13)
+
 class OpenNPCDialog(gui.Dialog):
     def __init__(self, engine, **params):
         self.engine = engine
@@ -33,11 +38,11 @@ class OpenNPCDialog(gui.Dialog):
         t.td(gui.Spacer(10, 20))
 
         t.tr()
-        e = gui.Button('Malfermi na NLR')
+        e = gui.Button('Malfermi na NLR', font=HAPPY_FONT_TIME)
         e.connect(gui.CLICK, self.openNPC, None)
         t.td(e)
 
-        e = gui.Button('Rezigni')
+        e = gui.Button('Rezigni', font=HAPPY_FONT_TIME)
         e.connect(gui.CLICK, self.close, None)
         t.td(e)
 
@@ -100,11 +105,11 @@ class OpenItemDialog(gui.Dialog):
         t.td(gui.Spacer(10, 20))
 
         t.tr()
-        e = gui.Button('Elektu objekton')
+        e = gui.Button('Elektu objekton', font=HAPPY_FONT_TIME)
         e.connect(gui.CLICK, self.openItem, None)
         t.td(e)
 
-        e = gui.Button('Rezigni')
+        e = gui.Button('Rezigni', font=HAPPY_FONT_TIME)
         e.connect(gui.CLICK, self.close, None)
         t.td(e)
 
@@ -160,7 +165,7 @@ class NPCGeneralControl(gui.Table):
         self.td(gui.Spacer(10, 70))
 
         self.tr()
-        e = gui.Button("Malfermi na NLR...", width=100)
+        e = gui.Button("Malfermi na NLR...", width=100, font=HAPPY_FONT_TIME)
         e.connect(gui.CLICK, openNpcDialog.openDialog, None)
         self.td(e, colspan=2)
 
@@ -168,17 +173,17 @@ class NPCGeneralControl(gui.Table):
         self.td(gui.Spacer(10, 10))
 
         self.tr()
-        self.td(gui.Label('Nomo:', color=UI_FONT_COLOR), colspan=2)
+        self.td(gui.Label('Nomo:', color=UI_FONT_COLOR, font=HAPPY_FONT_TIME), colspan=2)
         self.tr()
-        self.td(gui.Input('', size=26, name='inpNpcName'), colspan=2, valign=-1)
+        self.td(gui.Input('', size=26, name='inpNpcName', font=HAPPY_FONT_TIME), colspan=2, valign=-1)
 
         self.tr()
         self.td(gui.Spacer(10, 10))
 
         self.tr()
-        self.td(gui.Label('Konduto:', color=UI_FONT_COLOR), colspan=2)
+        self.td(gui.Label('Konduto:', color=UI_FONT_COLOR, font=HAPPY_FONT_TIME), colspan=2)
         self.tr()
-        e = gui.Select(name='selBehaviour')
+        e = gui.Select(name='selBehaviour', font=HAPPY_FONT_TIME)
         e.add('Ataki tuj', 0)
         e.add('Ataki kiam doloriĝas', 1)
         e.add('Amikema', 2)
@@ -192,7 +197,7 @@ class NPCGeneralControl(gui.Table):
         self.td(gui.Spacer(10, 10))
 
         self.tr()
-        self.lblSpawnSecs = gui.Label('Reaperindico: 0 sekundoj', color=UI_FONT_COLOR)
+        self.lblSpawnSecs = gui.Label('Reaperindico: 0 sekundoj', color=UI_FONT_COLOR, font=HAPPY_FONT_TIME)
         self.td(self.lblSpawnSecs, colspan=2)
 
         self.tr()
@@ -223,15 +228,15 @@ class NPCCombatControl(gui.Table):
         self.itemVal = 0
 
         self.tr()
-        self.td(gui.Label(u'Atakmesaĝo:', color=UI_FONT_COLOR))
+        self.td(gui.Label(u'Atakmesaĝo:', color=UI_FONT_COLOR, font=HAPPY_FONT_TIME))
         self.tr()
-        self.td(gui.Input('', size=26, name='inpNpcAttackSay'), valign=-1)
+        self.td(gui.Input('', size=26, name='inpNpcAttackSay', font=HAPPY_FONT_TIME), valign=-1)
 
         self.tr()
         self.td(gui.Spacer(10, 20))
 
         self.tr()
-        self.lblRan = gui.Label('Atingo: 0', color=UI_FONT_COLOR)
+        self.lblRan = gui.Label('Atingo: 0', color=UI_FONT_COLOR, font=HAPPY_FONT_TIME)
         self.td(self.lblRan)
 
         self.tr()
@@ -243,7 +248,7 @@ class NPCCombatControl(gui.Table):
         self.td(gui.Spacer(10, 20))
 
         self.tr()
-        self.lblDropChance = gui.Label('Lasigeblo: 0 (0%)', color=UI_FONT_COLOR)
+        self.lblDropChance = gui.Label('Lasigeblo: 0 (0%)', color=UI_FONT_COLOR, font=HAPPY_FONT_TIME)
         self.td(self.lblDropChance)
 
         self.tr()
@@ -255,11 +260,11 @@ class NPCCombatControl(gui.Table):
         self.td(gui.Spacer(10, 10))
 
         self.tr()
-        self.lblDropItem = gui.Label('Lasigi objekton: Neniu', color=UI_FONT_COLOR)
+        self.lblDropItem = gui.Label('Lasigi objekton: Neniu', color=UI_FONT_COLOR, font=HAPPY_FONT_TIME)
         self.td(self.lblDropItem)
 
         self.tr()
-        e = gui.Button("Elektu objekton...", width=100)
+        e = gui.Button("Elektu objekton...", width=100, font=HAPPY_FONT_TIME)
         e.connect(gui.CLICK, openItemDialog.openDialog, None)
         self.td(e, colspan=2)
 
@@ -267,7 +272,7 @@ class NPCCombatControl(gui.Table):
         self.td(gui.Spacer(10, 10))
 
         self.tr()
-        self.lblDropItemVal = gui.Label('Kvanto da lasigita objekto: 1', color=UI_FONT_COLOR)
+        self.lblDropItemVal = gui.Label('Kvanto da lasigita objekto: 1', color=UI_FONT_COLOR, font=HAPPY_FONT_TIME)
         self.td(self.lblDropItemVal)
 
         self.tr()
@@ -301,7 +306,7 @@ class NPCStatsControl(gui.Table):
         self.td(gui.Spacer(10, 20))
 
         self.tr()
-        self.lblStr = gui.Label('Forto: 0', color=UI_FONT_COLOR)
+        self.lblStr = gui.Label('Forto: 0', color=UI_FONT_COLOR, font=HAPPY_FONT_TIME)
         self.td(self.lblStr)
 
         self.tr()
@@ -313,7 +318,7 @@ class NPCStatsControl(gui.Table):
         self.td(gui.Spacer(10, 20))
 
         self.tr()
-        self.lblDef = gui.Label('Defendo: 0', color=UI_FONT_COLOR)
+        self.lblDef = gui.Label('Defendo: 0', color=UI_FONT_COLOR, font=HAPPY_FONT_TIME)
         self.td(self.lblDef)
 
         self.tr()
@@ -325,7 +330,7 @@ class NPCStatsControl(gui.Table):
         self.td(gui.Spacer(10, 20))
 
         self.tr()
-        self.lblMag = gui.Label('Magio: 0', color=UI_FONT_COLOR)
+        self.lblMag = gui.Label('Magio: 0', color=UI_FONT_COLOR, font=HAPPY_FONT_TIME)
         self.td(self.lblMag)
 
         self.tr()
@@ -337,7 +342,7 @@ class NPCStatsControl(gui.Table):
         self.td(gui.Spacer(10, 20))
 
         self.tr()
-        self.lblSpd = gui.Label('Rapido: 0', color=UI_FONT_COLOR)
+        self.lblSpd = gui.Label('Rapido: 0', color=UI_FONT_COLOR, font=HAPPY_FONT_TIME)
         self.td(self.lblSpd)
 
         self.tr()
@@ -376,20 +381,20 @@ class NPCEditorContainer(gui.Container):
         self.tTitle = gui.Table(width=272, height=32)
 
         self.tTitle.tr()
-        self.tTitle.td(gui.Label("NLR editilo", name='npcTitle', color=UI_FONT_COLOR))
+        self.tTitle.td(gui.Label("NLR editilo", name='npcTitle', color=UI_FONT_COLOR, font=HAPPY_FONT_TIME))
 
         # buttons
         self.t = gui.Table(width=272, height=50)
 
-        e = gui.Button(u"Ĝenerala", width=70)
+        e = gui.Button(u"Ĝenerala", width=70, font=HAPPY_FONT_TIME)
         e.connect(gui.CLICK, self.toggleGeneral, None)
         self.t.td(e)
 
-        e = gui.Button("Batalo", width=70)
+        e = gui.Button("Batalo", width=70, font=HAPPY_FONT_TIME)
         e.connect(gui.CLICK, self.toggleCombat, None)
         self.t.td(e)
 
-        e = gui.Button("Statistiko", width=70)
+        e = gui.Button("Statistiko", width=70, font=HAPPY_FONT_TIME)
         e.connect(gui.CLICK, self.toggleStats, None)
         self.t.td(e)
 
@@ -403,11 +408,11 @@ class NPCEditorContainer(gui.Container):
         self.tBottom = gui.Table(width=272, height=200)
 
         self.tBottom.tr()
-        self.saveButton = gui.Button("Aldoni na NLR", width=100, height=40)
+        self.saveButton = gui.Button("Aldoni na NLR", width=100, height=40, font=HAPPY_FONT_TIME)
         self.saveButton .connect(gui.CLICK, self.saveNPC, None)
         self.tBottom.td(self.saveButton)
 
-        e = gui.Button("Rezigni", width=100, height=40)
+        e = gui.Button("Rezigni", width=100, height=40, font=HAPPY_FONT_TIME)
         e.connect(gui.CLICK, self.cancel, None)
         self.tBottom.td(e)
 

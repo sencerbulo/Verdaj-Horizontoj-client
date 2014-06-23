@@ -12,6 +12,11 @@ import global_vars as g
 
 UI_FONT_COLOR = (251, 230, 204)
 
+# Font hack
+import os
+dataPath = os.path.join('..', 'data')
+HAPPY_FONT_TIME = pygame.font.Font(dataPath + '/fonts/ConsolaMono-Bold.ttf', 13 )
+
 
 class OpenItemDialog(gui.Dialog):
     def __init__(self, engine, **params):
@@ -19,12 +24,12 @@ class OpenItemDialog(gui.Dialog):
 
         self._count = 0
 
-        title = gui.Label(u"Ŝarĝi objekton")
+        title = gui.Label(u"Ŝarĝi objekton", font=HAPPY_FONT_TIME)
 
         t = gui.Table()
 
         t.tr()
-        t.td(gui.Label('Elekti objekton:'), colspan=2)
+        t.td(gui.Label('Elekti objekton:', font=HAPPY_FONT_TIME), colspan=2)
 
         t.tr()
         t.td(gui.Spacer(10, 20))
@@ -37,11 +42,11 @@ class OpenItemDialog(gui.Dialog):
         t.td(gui.Spacer(10, 20))
 
         t.tr()
-        e = gui.Button(_('Malfermi objekton'))
+        e = gui.Button(_('Malfermi objekton'), font=HAPPY_FONT_TIME)
         e.connect(gui.CLICK, self.openItem, None)
         t.td(e)
 
-        e = gui.Button('Rezigni')
+        e = gui.Button('Rezigni', font=HAPPY_FONT_TIME)
         e.connect(gui.CLICK, self.close, None)
         t.td(e)
 
@@ -86,7 +91,7 @@ class DataEquipment(gui.Table):
         gui.Table.__init__(self, **params)
 
         self.tr()
-        self.lblDur = gui.Label(_(u'Daŭrado: 0'), color=UI_FONT_COLOR)
+        self.lblDur = gui.Label(_(u'Daŭrado: 0'), color=UI_FONT_COLOR, font=HAPPY_FONT_TIME)
         self.td(self.lblDur)
 
         self.tr()
@@ -119,7 +124,7 @@ class DataPotion(gui.Table):
         gui.Table.__init__(self, **params)
 
         self.tr()
-        self.lblVital = gui.Label(u'Vitala modifado: uzu la ŝovilon', color=UI_FONT_COLOR)
+        self.lblVital = gui.Label(u'Vitala modifado: uzu la ŝovilon', color=UI_FONT_COLOR, font=HAPPY_FONT_TIME)
         self.td(self.lblVital)
 
         self.tr()
@@ -137,7 +142,7 @@ class DataSpell(gui.Table):
         gui.Table.__init__(self, **params)
 
         self.tr()
-        self.lblSpell = gui.Label(u'Sorĉo: uzu la ŝovilon', color=UI_FONT_COLOR)
+        self.lblSpell = gui.Label(u'Sorĉo: uzu la ŝovilon', color=UI_FONT_COLOR, font=HAPPY_FONT_TIME)
         self.td(self.lblSpell)
 
         self.tr()
@@ -171,24 +176,24 @@ class ItemEditorContainer(gui.Container):
         self.tTitle = gui.Table(width=272, height=32)
 
         self.tTitle.tr()
-        self.tTitle.td(gui.Label(_("Objekteditilo"), name='itemTitle', color=UI_FONT_COLOR))
+        self.tTitle.td(gui.Label(_("Objekteditilo"), name='itemTitle', color=UI_FONT_COLOR, font=HAPPY_FONT_TIME))
 
         # content
         self.tContent = gui.Table(width=272, height=123)
 
         self.tContent.tr()
-        e = gui.Button(_("Malfermi objekton..."), width=100)
+        e = gui.Button(_("Malfermi objekton..."), width=100, font=HAPPY_FONT_TIME)
         e.connect(gui.CLICK, openItemDialog.openDialog, None)
         self.tContent.td(e, colspan=2)
 
         self.tContent.tr()
-        self.tContent.td(gui.Label(_('Objektnomo:'), color=UI_FONT_COLOR), colspan=2)
+        self.tContent.td(gui.Label(_('Objektnomo:'), color=UI_FONT_COLOR, font=HAPPY_FONT_TIME), colspan=2)
         self.tContent.tr()
         self.tContent.td(gui.Input('', size=26, name='inpItemName'), colspan=2, valign=-1)
 
         self.tContent.tr()
-        self.tContent.td(gui.Label('Objektspeco:', color=UI_FONT_COLOR))
-        e = gui.Select(name='selItemType')
+        self.tContent.td(gui.Label('Objektspeco:', color=UI_FONT_COLOR, font=HAPPY_FONT_TIME))
+        e = gui.Select(name='selItemType', font=HAPPY_FONT_TIME)
         e.add('Neniu', 0)
         e.add('Armilo', 1)
         e.add('Armaĵo', 2)
@@ -214,11 +219,11 @@ class ItemEditorContainer(gui.Container):
         self.tBottom = gui.Table(width=272, height=200)
 
         self.tBottom.tr()
-        self.saveButton = gui.Button("Aldoni objekton", width=100, height=40)
+        self.saveButton = gui.Button("Aldoni objekton", width=100, height=40, font=HAPPY_FONT_TIME)
         self.saveButton .connect(gui.CLICK, self.saveItem, None)
         self.tBottom.td(self.saveButton)
 
-        e = gui.Button("Rezigni", width=100, height=40)
+        e = gui.Button("Rezigni", width=100, height=40, font=HAPPY_FONT_TIME)
         e.connect(gui.CLICK, self.cancel, None)
         self.tBottom.td(e)
 

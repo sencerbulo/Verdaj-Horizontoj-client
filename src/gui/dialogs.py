@@ -15,7 +15,7 @@ def alertMessageDialog(msg='', title=''):
     if title is '':
         title = gui.Label(u'Averta mesaĝo', font=HAPPY_FONT_TIME)
     else:
-        title = gui.Label(title)
+        title = gui.Label(title, font=HAPPY_FONT_TIME)
 
     mainTable = gui.Table()
 
@@ -23,7 +23,7 @@ def alertMessageDialog(msg='', title=''):
     mainTable.td(gui.Spacer(10, 10))
 
     mainTable.tr()
-    mainTable.td(gui.Label(msg))
+    mainTable.td(gui.Label(msg, font=HAPPY_FONT_TIME))
 
     mainTable.tr()
     mainTable.td(gui.Spacer(10, 20))

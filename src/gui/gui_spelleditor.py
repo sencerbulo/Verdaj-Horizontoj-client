@@ -12,6 +12,10 @@ import global_vars as g
 
 UI_FONT_COLOR = (251, 230, 204)
 
+# Font hack
+import os
+dataPath = os.path.join('..', 'data')
+HAPPY_FONT_TIME = pygame.font.Font(dataPath + '/fonts/ConsolaMono-Bold.ttf', 13)
 
 class OpenSpellDialog(gui.Dialog):
     def __init__(self, engine, **params):
@@ -19,12 +23,12 @@ class OpenSpellDialog(gui.Dialog):
 
         self._count = 0
 
-        title = gui.Label(_(u"Malfermi sorĉon"))
+        title = gui.Label(_(u"Malfermi sorĉon"), font=HAPPY_FONT_TIME)
 
         t = gui.Table()
 
         t.tr()
-        t.td(gui.Label(_(u'Elektu sorĉon:')), colspan=2)
+        t.td(gui.Label(_(u'Elektu sorĉon:'), font=HAPPY_FONT_TIME), colspan=2)
 
         t.tr()
         t.td(gui.Spacer(10, 20))
@@ -37,11 +41,11 @@ class OpenSpellDialog(gui.Dialog):
         t.td(gui.Spacer(10, 20))
 
         t.tr()
-        e = gui.Button(_(u'Malfermi sorĉon'))
+        e = gui.Button(_(u'Malfermi sorĉon'), font=HAPPY_FONT_TIME)
         e.connect(gui.CLICK, self.openSpell, None)
         t.td(e)
 
-        e = gui.Button(_('Rezigni'))
+        e = gui.Button(_('Rezigni'), font=HAPPY_FONT_TIME)
         e.connect(gui.CLICK, self.close, None)
         t.td(e)
 
@@ -86,7 +90,7 @@ class DataGiveItem(gui.Table):
         gui.Table.__init__(self, **params)
 
         self.tr()
-        self.lblItemNum = gui.Label(_('Objekto: 0'), color=UI_FONT_COLOR)
+        self.lblItemNum = gui.Label(_('Objekto: 0'), color=UI_FONT_COLOR, font=HAPPY_FONT_TIME)
         self.td(self.lblItemNum)
 
         self.tr()
@@ -98,7 +102,7 @@ class DataGiveItem(gui.Table):
         self.td(gui.Spacer(10, 20))
 
         self.tr()
-        self.lblStr = gui.Label(_('Prezo de objekto: 0'), color=UI_FONT_COLOR)
+        self.lblStr = gui.Label(_('Prezo de objekto: 0'), color=UI_FONT_COLOR, font=HAPPY_FONT_TIME)
         self.td(self.lblStr)
 
         self.tr()
@@ -126,7 +130,7 @@ class DataVitalMod(gui.Table):
         gui.Table.__init__(self, **params)
 
         self.tr()
-        self.lblVital = gui.Label(_('Vitala modifado: 0'), color=UI_FONT_COLOR)
+        self.lblVital = gui.Label(_('Vitala modifado: 0'), color=UI_FONT_COLOR, font=HAPPY_FONT_TIME)
         self.td(self.lblVital)
 
         self.tr()
@@ -159,24 +163,24 @@ class SpellEditorContainer(gui.Container):
         self.tTitle = gui.Table(width=272, height=32)
 
         self.tTitle.tr()
-        self.tTitle.td(gui.Label(_(u"Redaktilo de ensorĉoj"), name='spellTitle', color=UI_FONT_COLOR))
+        self.tTitle.td(gui.Label(_(u"Redaktilo de ensorĉoj"), name='spellTitle', color=UI_FONT_COLOR, font=HAPPY_FONT_TIME))
 
         # content
         self.tContent = gui.Table(width=272, height=123)
 
         self.tContent.tr()
-        e = gui.Button(u"Malfermi sorĉon...", width=100)
+        e = gui.Button(u"Malfermi sorĉon...", width=100, font=HAPPY_FONT_TIME)
         e.connect(gui.CLICK, openSpellDialog.openDialog, None)
         self.tContent.td(e, colspan=2)
 
         self.tContent.tr()
-        self.tContent.td(gui.Label(u'Sorĉnomo:', color=UI_FONT_COLOR), colspan=2)
+        self.tContent.td(gui.Label(u'Sorĉnomo:', color=UI_FONT_COLOR, font=HAPPY_FONT_TIME), colspan=2)
         self.tContent.tr()
-        self.tContent.td(gui.Input('', size=26, name='inpSpellName'), colspan=2, valign=-1)
+        self.tContent.td(gui.Input('', size=26, name='inpSpellName', font=HAPPY_FONT_TIME), colspan=2, valign=-1)
 
         self.tContent.tr()
-        self.tContent.td(gui.Label(u'Sorĉspeco:', color=UI_FONT_COLOR))
-        e = gui.Select(name='selSpellType')
+        self.tContent.td(gui.Label(u'Sorĉspeco:', color=UI_FONT_COLOR, font=HAPPY_FONT_TIME))
+        e = gui.Select(name='selSpellType', font=HAPPY_FONT_TIME)
         e.add('Aldoni VE', 0)
         e.add('Aldoni ME', 1)
         e.add('Aldoni SE', 2)
@@ -199,11 +203,11 @@ class SpellEditorContainer(gui.Container):
         self.tBottom = gui.Table(width=272, height=200)
 
         self.tBottom.tr()
-        self.saveButton = gui.Button(u"Aldoni sorĉon", width=100, height=40)
+        self.saveButton = gui.Button(u"Aldoni sorĉon", width=100, height=40, font=HAPPY_FONT_TIME)
         self.saveButton .connect(gui.CLICK, self.saveSpell, None)
         self.tBottom.td(self.saveButton)
 
-        e = gui.Button("Rezigni", width=100, height=40)
+        e = gui.Button("Rezigni", width=100, height=40, font=HAPPY_FONT_TIME)
         e.connect(gui.CLICK, self.cancel, None)
         self.tBottom.td(e)
 
