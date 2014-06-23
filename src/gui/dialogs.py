@@ -3,10 +3,17 @@ from pgu import gui
 import global_vars as g
 from constants import *
 
+# Font hack
+import pygame
+from pygame.locals import *
+import os
+dataPath = os.path.join('..', 'data')
+HAPPY_FONT_TIME = pygame.font.Font(dataPath + '/fonts/ConsolaMono-Bold.ttf', 16)
+
 def alertMessageDialog(msg='', title=''):
     # show an alert message
     if title is '':
-        title = gui.Label(u'Averta mesaĝo')
+        title = gui.Label(u'Averta mesaĝo', font=HAPPY_FONT_TIME)
     else:
         title = gui.Label(title)
 
