@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 import pygame
 from pygame.locals import *
 from pgu import gui
@@ -18,7 +19,7 @@ class OpenItemDialog(gui.Dialog):
 
         self._count = 0
 
-        title = gui.Label("Sxagxi objekton")
+        title = gui.Label(u"Ŝarĝi objekton")
 
         t = gui.Table()
 
@@ -85,7 +86,7 @@ class DataEquipment(gui.Table):
         gui.Table.__init__(self, **params)
 
         self.tr()
-        self.lblDur = gui.Label(_('Dauxrado: 0'), color=UI_FONT_COLOR)
+        self.lblDur = gui.Label(_(u'Daŭrado: 0'), color=UI_FONT_COLOR)
         self.td(self.lblDur)
 
         self.tr()
@@ -109,7 +110,7 @@ class DataEquipment(gui.Table):
         self.lblStr.set_text('Forto: ' + str(value.value))
 
     def updateLabelDur(self, value):
-        self.lblDur.set_text('Dauxrado: ' + str(value.value))
+        self.lblDur.set_text(u'Daŭrado: ' + str(value.value))
 
 
 class DataPotion(gui.Table):
@@ -118,7 +119,7 @@ class DataPotion(gui.Table):
         gui.Table.__init__(self, **params)
 
         self.tr()
-        self.lblVital = gui.Label('Vitala modifado: uzu la sxovilon', color=UI_FONT_COLOR)
+        self.lblVital = gui.Label(u'Vitala modifado: uzu la ŝovilon', color=UI_FONT_COLOR)
         self.td(self.lblVital)
 
         self.tr()
@@ -136,7 +137,7 @@ class DataSpell(gui.Table):
         gui.Table.__init__(self, **params)
 
         self.tr()
-        self.lblSpell = gui.Label('Sorcxo: uzu la sxovilon', color=UI_FONT_COLOR)
+        self.lblSpell = gui.Label(u'Sorĉo: uzu la ŝovilon', color=UI_FONT_COLOR)
         self.td(self.lblSpell)
 
         self.tr()
@@ -145,7 +146,7 @@ class DataSpell(gui.Table):
         self.td(e)
 
     def updateSpellName(self, value):
-        self.lblSpell.set_text('Sorcxo: ' + str(value.value))
+        self.lblSpell.set_text(u'Sorĉo: ' + str(value.value))
 
 
 class ItemEditorContainer(gui.Container):
@@ -190,18 +191,18 @@ class ItemEditorContainer(gui.Container):
         e = gui.Select(name='selItemType')
         e.add('Neniu', 0)
         e.add('Armilo', 1)
-        e.add('Armajxo', 2)
+        e.add('Armaĵo', 2)
         e.add('Kasko', 3)
-        e.add('Sxildo', 4)
+        e.add('Ŝildo', 4)
         e.add('Pocio (+VE)', 5) #Potions
         e.add('Pocio (+MP)', 6)
         e.add('Pocio (+SE)', 7)
         e.add('Pocio (-VE)', 8)
         e.add('Pocio (-ME)', 9)
         e.add('Pocio (-SE)', 10)
-        e.add('Sxlosilo', 11)
+        e.add('Ŝlosilo', 11)
         e.add('Mono', 12)
-        e.add('Sorcxo', 13)
+        e.add('Sorĉo', 13)
         e.value = 0
         e.connect(gui.CHANGE, self.updateType, None)
         self.tContent.td(e)

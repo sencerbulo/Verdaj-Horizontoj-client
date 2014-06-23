@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 import pygame
 from pygame.locals import *
 from pgu import gui
@@ -13,6 +14,11 @@ from gui_mapeditor import MapEditorContainer, MapEditorGUI
 from gui_itemeditor import ItemEditorContainer, ItemEditorGUI
 from gui_spelleditor import SpellEditorContainer, SpellEditorGUI
 from gui_npceditor import NPCEditorContainer, NPCEditorGUI
+
+# Font hack
+import os
+dataPath = os.path.join('..', 'data')
+HAPPY_FONT_TIME = pygame.font.Font(dataPath + '/fonts/ConsolaMono-Bold.ttf', 16)
 
 # gui states
 GUI_STATS = 0
@@ -32,7 +38,7 @@ class QuitDialog(gui.Dialog):
         t = gui.Table()
 
         t.tr()
-        t.td(gui.Label(_("Cxu vi volas forlasi?")), colspan=2)
+        t.td(gui.Label(_(u"Ĉu vi volas forlasi?")), colspan=2)
 
         t.tr()
         t.td(gui.Spacer(10, 20))
@@ -170,20 +176,20 @@ class uiContainer(gui.Container):
         self.tBottom = gui.Table(width=272, height=200)
 
         self.tBottom.tr()
-        e = gui.Button(_("Statistikoj"), width=100, height=40)
+        e = gui.Button(_("Statistikoj"), width=100, height=40, font=HAPPY_FONT_TIME)
         e.connect(gui.CLICK, self.toggleStats, None)
         self.tBottom.td(e)
-        e = gui.Button(_("Inventaro"), width=100, height=40)
+        e = gui.Button(_("Inventaro"), width=100, height=40, font=HAPPY_FONT_TIME)
         e.connect(gui.CLICK, self.toggleInventory, None)
         self.tBottom.td(e)
 
         self.tBottom.tr()
-        e = gui.Button(_('Sorcxlibro'), width=100, height=40)
+        e = gui.Button(_(u'Sorĉlibro'), width=100, height=40, font=HAPPY_FONT_TIME)
         e.connect(gui.CLICK, self.toggleSpellbook, None)
         self.tBottom.td(e, colspan=2)
 
         self.tBottom.tr()
-        e = gui.Button(_('Agordoj'), width=100, height=40)
+        e = gui.Button(_('Agordoj'), width=100, height=40, font=HAPPY_FONT_TIME)
         e.connect(gui.CLICK, self.toggleSettings, None)
         self.tBottom.td(e, colspan=2)
 
@@ -206,7 +212,7 @@ class uiContainer(gui.Container):
 
     def toggleSpellbook(self, value):
         self.engine.setState(GUI_SPELLBOOK)
-        self.updateTitle(_('Sorcxlibro'))
+        self.updateTitle(_(u'Sorĉlibro'))
         g.tcpConn.sendRequestSpells()
 
     def toggleSettings(self, value):
@@ -218,7 +224,7 @@ class uiContainer(gui.Container):
             self.tTitle.remove(self.tTitle.find('uiTitle'))
 
         self.tTitle.tr()
-        self.tTitle.td(gui.Label(title, name='uiTitle', color=titleColor))
+        self.tTitle.td(gui.Label(title, name='uiTitle', color=titleColor, font=HAPPY_FONT_TIME))
 
 
 class GUIContainer(gui.Container):

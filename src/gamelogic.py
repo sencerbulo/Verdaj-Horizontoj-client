@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 import time
 
 from network.database import *
@@ -105,21 +106,21 @@ def handleMsg(text):
             ''' shows a list of admin commands '''
             if command[0] == "/admin": # administranto
                 if getPlayerAccess(g.myIndex) < ADMIN_MONITOR:
-                    addText(_("Vi devas esti plu alta administranto por fari cxi tiu!"), alertColor)
+                    addText(_(u"Vi devas esti plu alta administranto por fari ĉi tiu!"), alertColor)
                     return
 
                 addText(_("Socialaj Komandoj:"), helpColor)
-                addText(_('  \"mesagxo = Tutmonda elsendo'), helpColor) #Global admin message / Global broadcast
-                addText(_("  =mesagxo  = Privata administranta kanalo"), helpColor) #Private admin message / private admin channel
-                addText(_("  !nomo mesagxo = Ludanto mesagxo"), helpColor)
-                addText(_("Available Commands: /admin, /loc, /mapeditor, /warpmeto, /warptome, /warpto, /setsprite, /giveitem, /mapreport, /kick, /ban, /edititem, /respawn, /editnpc, /motd, /editshop, /editspell, /debug"), helpColor)
+                addText(_(u'  \"mesaĝo = Tutmonda elsendo'), helpColor) #Global admin message / Global broadcast
+                addText(_(u"  =mesaĝxo  = Privata administranta kanalo"), helpColor) #Private admin message / private admin channel
+                addText(_(u"  !nomo mesagxo = Ludanto mesaĝo"), helpColor)
+                addText(_("Uzeblaj Komandoj: /admin, /loc, /mapeditor, /warpmeto, /warptome, /warpto, /setsprite, /giveitem, /mapreport, /kick, /ban, /edititem, /respawn, /editnpc, /motd, /editshop, /editspell, /debug"), helpColor)
 		# administranto, loko, mapeditilo, transloki min al, transloki al mi, transloki al mi, agori bildeton, doni objekton,
 		# map raporto, eljxeti, malpermesi, redakti objekton, reaperi, redakti NLR, mdlt / ctm, redakti vendejo,
-		# redakti sorcxo, gxustigi
+		# redakti sorĉo, gxustigi
 
             if command[0] == "/kick":
                 if getPlayerAccess(g.myIndex) < ADMIN_MONITOR:
-                    addText(_("Vi devas esti plu alta administranto por fari cxi tiu!"), alertColor)
+                    addText(_(u"Vi devas esti plu alta administranto por fari ĉi tiu!"), alertColor)
                     return
 
                 if len(command) <= 1:
@@ -139,7 +140,7 @@ def handleMsg(text):
             ''' displays the current location (x, y, map id) '''
             if command[0] == "/loc":
                 if getPlayerAccess(g.myIndex) < ADMIN_MAPPER:
-                    addText(_("Vi devas esti plu alta administranto por fari cxi tiu!"), alertColor)
+                    addText(_(u"Vi devas esti plu alta administranto por fari ĉi tiu!"), alertColor)
                     return
 
                 g.boolLoc = not g.boolLoc
@@ -149,14 +150,14 @@ def handleMsg(text):
             ''' enables the map editor '''
             if command[0] == "/mapeditor":
                 if getPlayerAccess(g.myIndex) < ADMIN_MAPPER:
-                    addText(_("Vi devas esti plu alta administranto por fari cxi tiu!"), alertColor)
+                    addText(_(u"Vi devas esti plu alta administranto por fari ĉi tiu!"), alertColor)
                     return
 
                 g.tcpConn.sendRequestEditMap()
 
             if command[0] == "/warpmeto":
                 if getPlayerAccess(g.myIndex) < ADMIN_MAPPER:
-                    addText(_("Vi devas esti plu alta administranto por fari cxi tiu!"), alertColor)
+                    addText(_(u"Vi devas esti plu alta administranto por fari ĉi tiu!"), alertColor)
                     return
 
                 if len(command) <= 1:
@@ -172,7 +173,7 @@ def handleMsg(text):
 
             if command[0] == "/warptome":
                 if getPlayerAccess(g.myIndex) < ADMIN_MAPPER:
-                    addText(_("Vi devas esti plu alta administranto por fari cxi tiu!"), alertColor)
+                    addText(_(u"Vi devas esti plu alta administranto por fari ĉi tiu!"), alertColor)
                     return
 
                 if len(command) <= 1:
@@ -188,7 +189,7 @@ def handleMsg(text):
 
             if command[0] == "/warpto":
                 if getPlayerAccess(g.myIndex) < ADMIN_MAPPER:
-                    addText("Vi devas esti plu alta administranto por fari cxi tiu!", alertColor)
+                    addText(u"Vi devas esti plu alta administranto por fari ĉi tiu!", alertColor)
                     return
 
                 if len(command) <= 1:
@@ -210,7 +211,7 @@ def handleMsg(text):
             ''' sets the admin sprite '''
             if command[0] == "/setsprite":
                 if getPlayerAccess(g.myIndex) < ADMIN_MAPPER:
-                    addText("Vi devas esti plu alta administranto por fari cxi tiu!", alertColor)
+                    addText(u"Vi devas esti plu alta administranto por fari ĉi tiu!", alertColor)
                     return
 
                 if len(command) <= 1:
@@ -225,14 +226,14 @@ def handleMsg(text):
 
             if command[0] == "/mapreport":
                 if getPlayerAccess(g.myIndex) < ADMIN_MAPPER:
-                    addText("Vi devas esti plu alta administranto por fari cxi tiu!", alertColor)
+                    addText(u"Vi devas esti plu alta administranto por fari ĉi tiu!", alertColor)
                     return
 
                 g.tcpConn.sendMapReport()
 
             if command[0] == '/respawn':
                 if getPlayerAccess(g.myIndex) < ADMIN_MAPPER:
-                    addText("Vi devas esti plu alta administranto por fari cxi tiu!", alertColor)
+                    addText(u"Vi devas esti plu alta administranto por fari ĉi tiu!", alertColor)
                     return
 
                 g.tcpConn.sendMapRespawn()
@@ -244,14 +245,14 @@ def handleMsg(text):
             ''' enables the map editor '''
             if command[0] == "/itemeditor": #ero editilo
                 if getPlayerAccess(g.myIndex) < ADMIN_DEVELOPER:
-                    addText("Vi devas esti plu alta administranto por fari cxi tiu!", alertColor)
+                    addText(u"Vi devas esti plu alta administranto por fari ĉi tiu!", alertColor)
                     return
 
                 g.tcpConn.sendRequestEditItem()
 
-            if command[0] == '/spelleditor': #sorcxo editilo
+            if command[0] == '/spelleditor': #sorĉo editilo
                 if getPlayerAccess(g.myIndex) < ADMIN_DEVELOPER:
-                    addText("Vi devas esti plu alta administranto por fari cxi tiu!", alertColor)
+                    addText(u"Vi devas esti plu alta administranto por fari ĉi tiu!", alertColor)
                     return
 
                 g.tcpConn.sendRequestEditSpell()
@@ -259,7 +260,7 @@ def handleMsg(text):
             ''' enables the npc editor '''
             if command[0] == '/npceditor': #NLR editilo
                 if getPlayerAccess(g.myIndex) < ADMIN_DEVELOPER:
-                    addText("Vi devas esti plu alta administranto por fari cxi tiu!", alertColor)
+                    addText(u"Vi devas esti plu alta administranto por fari ĉi tiu!", alertColor)
                     return
 
                 g.tcpConn.sendRequestEditNpc()
@@ -267,15 +268,15 @@ def handleMsg(text):
             ''' gives an item to a player '''
             if command[0] == '/giveitem': #doni objekton
                 if getPlayerAccess(g.myIndex) < ADMIN_DEVELOPER:
-                    addText("Vi devas esti plu alta administranto por fari cxi tiu!", alertColor)
+                    addText(u"Vi devas esti plu alta administranto por fari ĉi tiu!", alertColor)
                     return
 
                 if len(command) < 2:
-                    addText('Uzado: /giveitem <name> <itemnum>', alertColor)
+                    addText('Uzado: /giveitem <nomo> <objekta indekso>', alertColor)
                     return
 
                 if command[1].isdigit() or not command[2].isdigit():
-                    addText('Uzado: /giveitem <name> <itemnum>', alertColor)
+                    addText('Uzado: /giveitem <nomo> <objekta indekso>', alertColor)
                     return
 
                 g.tcpConn.sendGiveItem(command[1], int(command[2]))
@@ -286,15 +287,15 @@ def handleMsg(text):
 
             if command[0] == '/setaccess': #agordi aliro
                 if getPlayerAccess(g.myIndex) < ADMIN_CREATOR:
-                    addText("Vi devas esti plu alta administranto por fari cxi tiu!", alertColor)
+                    addText(u"Vi devas esti plu alta administranto por fari ĉi tiu!", alertColor)
                     return
 
                 if len(command) < 2:
-                    addText('Uzado: /setaccess <nomo> <access>', alertColor)
+                    addText('Uzado: /setaccess <nomo> <agordo>', alertColor)
                     return
 
                 if command[1].isdigit() or not command[2].isdigit():
-                    addText('Uzado: /setaccess <nomo> <access>', alertColor)
+                    addText('Uzado: /setaccess <nomo> <agordo>', alertColor)
                     return
 
                 g.tcpConn.sendSetAccess(command[1], int(command[2]))
@@ -559,7 +560,7 @@ def castSpell(spellNum):
 
     # check if player has enough mp
     if getPlayerVital(g.myIndex, Vitals.mp) < Spell[spellSelected].reqMp:
-        addText(_('Ne suficxa da MP por jxeti ') + Spell[spellSelected].name + '.', textColor.BRIGHT_RED)
+        addText(_(u'Ne sufiĉa da MP por ĵeti ') + Spell[spellSelected].name + '.', textColor.BRIGHT_RED)
 
     if PlayerSpells[spellSelected] != None:
         tickCount = time.time() * 1000
@@ -572,10 +573,10 @@ def castSpell(spellNum):
                     Player[g.myIndex].castedSpell = True
 
             else:
-                addText(_('Ne eblas jxeti la sorcxon dum irado'), textColor.BRIGHT_RED)
+                addText(_(u'Ne eblas ĵeti la sorĉon dum irado'), textColor.BRIGHT_RED)
 
     else:
-        addText(_('Estas neniu ensorcxo cxi tie'), textColor.BRIGHT_RED)
+        addText(_(u'Estas neniu ensorĉo ĉi tie'), textColor.BRIGHT_RED)
 
 def setSpellbookHotkey(slotNum, key):
     if key in g.SPELLBOOK_HOTKEYS:

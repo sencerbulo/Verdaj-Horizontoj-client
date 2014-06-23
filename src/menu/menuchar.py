@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 import pygame
 from pygame.locals import *
 from pgu import gui
@@ -48,7 +49,7 @@ class characterControl(gui.Table):
         self.td(self.lblPlayerExtra, colspan=3, align=0)
 
         self.tr()
-        btn = gui.Button(_("Antauxa"), width=160, height=40, font=HAPPY_FONT_TIME)
+        btn = gui.Button(_(u"Antaŭa"), width=160, height=40, font=HAPPY_FONT_TIME)
         btn.connect(gui.CLICK, btnPrevChar, None)
         self.td(btn)
         self.td(gui.Spacer(300, 160))

@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 import pygame
 from pygame.locals import *
 from pgu import gui
@@ -177,7 +178,7 @@ class OpenNPCDialog(gui.Dialog):
 
         self._count = 0
 
-        title = gui.Label("Sxargxi na NLR")
+        title = gui.Label(u"Ŝarĝi na NLR")
 
         t = gui.Table()
 
@@ -353,7 +354,7 @@ class placeTileControl(gui.Table):
         self.td(e)
 
         self.tr()
-        self.td(gui.Label("Frangxo", color=UI_FONT_COLOR))
+        self.td(gui.Label(u"Franĝo", color=UI_FONT_COLOR))
         self.td(gui.Spacer(10, 0))
         self.td(gui.Radio(g, value=2))
 
@@ -361,7 +362,7 @@ class placeTileControl(gui.Table):
         e.add('Tavolo 1', 0)
         e.add('Tavolo 2', 1)
         e.add('Tavolo 3', 2)
-        e.add('Frangxo', 3)
+        e.add('Franĝo', 3)
         e.value = 0
         self.td(e)
         
@@ -373,11 +374,11 @@ class placeBlockControl(gui.Table):
         self.value = gui.Form()
 
         self.tr()
-        label = gui.Label("Alklaku maldekstre por aldoni blokajxon", color=UI_FONT_COLOR)
+        label = gui.Label(u"Alklaku maldekstre por aldoni blokaĵon", color=UI_FONT_COLOR)
         self.td(label)
 
         self.tr()
-        label = gui.Label("Alklaku dekstre por demeti blokajxon", color=UI_FONT_COLOR)
+        label = gui.Label(u"Alklaku dekstre por demeti blokaĵon", color=UI_FONT_COLOR)
         self.td(label)
 
 
@@ -510,7 +511,7 @@ class MapEditorContainer(gui.Container):
         e.connect(gui.CLICK, self.toggleTile, None)
         self.t.td(e)
 
-        e = gui.Button("Blokajxo", width=40)
+        e = gui.Button(u"Blokaĵo", width=40)
         e.connect(gui.CLICK, self.toggleBlock, None)
         self.t.td(e)
 
@@ -690,7 +691,7 @@ class MapEditorGUI():
         g.gameEngine.graphicsEngine.gameGUI.guiContainer.mapEditorControl.toggleProperties(None)
 
         # write hotkeys
-        addText('Konsilio: Tenu SHIFT dum la meto de kahelo por sxtopi la tutan tavolon.', textColor.YELLOW)
+        addText(u'Konsilio: Tenu SHIFT dum la meto de kahelo por ŝtopi la tutan tavolon.', textColor.YELLOW)
         addText('Konsilio: Tenu CTRL dum la demeto de kahelo por vakigi la tutan tavolon.', textColor.YELLOW)
 
         self.draw()
@@ -920,5 +921,5 @@ class MapEditorGUI():
 
         g.editor = EDITOR_NONE
         loadMap(getPlayerMap(g.myIndex))
-        print "Sxargi mapon?"
+        print u"Ŝargi mapon?"
         initMapData()

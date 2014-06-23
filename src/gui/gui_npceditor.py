@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 import pygame
 from pygame.locals import *
 from pgu import gui
@@ -179,7 +180,7 @@ class NPCGeneralControl(gui.Table):
         self.tr()
         e = gui.Select(name='selBehaviour')
         e.add('Ataki tuj', 0)
-        e.add('Ataki kiam dolorigxas', 1)
+        e.add('Ataki kiam doloriĝas', 1)
         e.add('Amikema', 2)
         e.add('Vendisto', 3)
         e.add('Gardo', 4)
@@ -222,7 +223,7 @@ class NPCCombatControl(gui.Table):
         self.itemVal = 0
 
         self.tr()
-        self.td(gui.Label('Atakmesagxo:', color=UI_FONT_COLOR))
+        self.td(gui.Label(u'Atakmesaĝo:', color=UI_FONT_COLOR))
         self.tr()
         self.td(gui.Input('', size=26, name='inpNpcAttackSay'), valign=-1)
 
@@ -380,7 +381,7 @@ class NPCEditorContainer(gui.Container):
         # buttons
         self.t = gui.Table(width=272, height=50)
 
-        e = gui.Button("Gxenerala", width=70)
+        e = gui.Button(u"Ĝenerala", width=70)
         e.connect(gui.CLICK, self.toggleGeneral, None)
         self.t.td(e)
 

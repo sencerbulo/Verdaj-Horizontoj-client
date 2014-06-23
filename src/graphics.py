@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 import time
 import pygame
 from pygame.locals import *

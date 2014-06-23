@@ -1,3 +1,5 @@
+# -*- coding: UTF-8 -*-
+
 # Server information
 GAME_IP = "127.0.0.1"
 

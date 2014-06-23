@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 from constants import MAX_PLAYERS, MAX_MAPX, MAX_MAPY, MAX_INV, MAX_ITEMS, MAX_MAP_ITEMS, MAX_NPCS, MAX_MAP_NPCS, MAX_SPELLS, MAX_SPELLANIM, MAX_PLAYER_SPELLS, MAX_TRADES, MAX_SHOPS
 import pygame
 from sprites import CharacterSprite

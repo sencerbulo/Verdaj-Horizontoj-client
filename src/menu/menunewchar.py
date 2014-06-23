@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 import sys
 import pygame
 from pygame.locals import *
@@ -49,7 +50,7 @@ class newCharControl(gui.Table):
         self.td(self.lblClassName, colspan=3, valign=1)
 
         self.tr()
-        btn = gui.Button(_("Antauxa"), width=160, height=40, font=HAPPY_FONT_TIME)
+        btn = gui.Button(_(u"Antaŭa"), width=160, height=40, font=HAPPY_FONT_TIME)
         btn.connect(gui.CLICK, btnPrevClass, None)
         self.td(btn)
         self.td(gui.Spacer(300, 160))
@@ -59,7 +60,7 @@ class newCharControl(gui.Table):
 
         self.tr()
         self.td(gui.Spacer(0, 0))
-        self.btnSelChar = gui.Button(_("Create Character"), width=160, height=30, font=HAPPY_FONT_TIME)
+        self.btnSelChar = gui.Button(_("Kreu rolulon"), width=160, height=30, font=HAPPY_FONT_TIME)
         self.btnSelChar.connect(gui.CLICK, btnCreateChar, None)
         self.td(self.btnSelChar)
         self.td(gui.Spacer(0, 0))
@@ -137,11 +138,11 @@ class menuNewCharacter():
             g.gameState = MENU_CHAR
 
     def isStringLegal(self, string):
-        restricted = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
+        restricted = u'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789ĉĈĝĜĥĤĵĴŝŜŭŬ'
 
         for i in range(len(string)):
             if string[i] not in restricted:
-                alertMessageDialog(msg=_('La nomo nevalidas. Gxi devas enhavi nur tiujn karaktrojn: [a-z], [A-Z], kaj [0-9].'), title=_('Eraro okazis'))
+                alertMessageDialog(msg=_(u'La nomo nevalidas. Ĝi devas enhavi nur tiujn karaktrojn: [a-z], [ĉĝĥĵŝŭ], kaj [0-9].'), title=_('Eraro okazis'))
                 return False
 
         return True

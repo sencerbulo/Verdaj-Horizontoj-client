@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 from pgu import gui
 import global_vars as g
 from constants import *
@@ -5,7 +6,7 @@ from constants import *
 def alertMessageDialog(msg='', title=''):
     # show an alert message
     if title is '':
-        title = gui.Label('Averta mesagxo')
+        title = gui.Label(u'Averta mesaĝo')
     else:
         title = gui.Label(title)
 

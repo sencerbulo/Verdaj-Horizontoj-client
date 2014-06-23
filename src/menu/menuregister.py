@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 import pygame, sys
 from pygame.locals import *
 from pgu import gui
@@ -27,12 +28,12 @@ class registerControl(gui.Table):
                     alertMessageDialog(msg='La salutnomo kaj pasvorto devas esti pli longa ol 3 karaktroj', title='Eraro okazis')
 
             def isStringLegal(string):
-                restricted = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
+                restricted = u'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789ĉĈĝĜĥĤĵĴŝŜŭŬ'
 
                 for i in range(len(string)):
                     if string[i] not in restricted:
                         # todo: msgbox (not valid)
-                        alertMessageDialog(msg='La nomo nevalidas. Gxi devas enhavi nur tiujn karaktrojn: [a-z], [A-Z], kaj [0-9].', title='Eraro okazis')
+                        alertMessageDialog(msg=u'La nomo nevalidas. Ĝi devas enhavi nur tiujn karaktrojn: [a-z], [ĉĝĥĵŝŭ], kaj [0-9].', title='Eraro okazis')
                         return False
 
                 return True
