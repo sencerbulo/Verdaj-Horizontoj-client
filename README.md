@@ -1,11 +1,19 @@
-pyorpg-client
-=============
+# Verdaj Horizontoj
 
-![PyORPG](https://raw.github.com/marcusmoller/pyorpg-client/master/pyorpg-logo.png)
+## About
 
-The client for the PyORPG project (http://www.powrtoch.org/pyorpg/)
+Verdaj Horizontoj is an open source framework for making 2D online RPGs for the Esperantist community.  It is a fork of the “pyorpg” project, which in turn is a Python port of the Mirage Online engine.
 
-## Quick start guide
+* Verdaj Horizontoj Kliento (Client): (https://github.com/Esperanto-Arcade/pyorpg-client)
+* Verdaj Horizontoj Servilo (Server): (https://github.com/Esperanto-Arcade/pyorpg-server)
+
+* Original client for the PyORPG project (http://www.powrtoch.org/pyorpg/)
+* Original server for the PyORPG project (https://github.com/marcusmoller/pyorpg-server)
+* Original Mirage Online files: (http://www.key2heaven.com/ms/downloads.php)
+
+## PyORPG Quick start guide
+
+I will write a Verdaj Horizontoj-specific one later.
 
 Check out the GitHub wiki for a quick start guide of how to use PyORPG:
 
@@ -39,3 +47,10 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ```
+
+# Translation Credits
+* Jorge
+
+# Code Tweaking
+* Rachel J. Morris
+
