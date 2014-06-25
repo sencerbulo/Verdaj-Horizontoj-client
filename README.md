@@ -1,8 +1,8 @@
-# Verdaj Horizontoj
+# Blua Horizonti
 
 ## About
 
-Verdaj Horizontoj is an open source framework for making 2D online RPGs for the Esperantist community.  It is a fork of the “pyorpg” project, which in turn is a Python port of the Mirage Online engine.
+Blua Horizonti is  the translation into Ido of Verdaj Horizontoj by Moosader. Blua Horizonti is an open source framework for making 2D online RPGs for the Esperantist and Idist communities.  It is a fork of a fork of the “pyorpg” project, which in turn is a Python port of the Mirage Online engine.
 
 * Verdaj Horizontoj Kliento (Client): (https://github.com/Esperanto-Arcade/pyorpg-client)
 * Verdaj Horizontoj Servilo (Server): (https://github.com/Esperanto-Arcade/pyorpg-server)
