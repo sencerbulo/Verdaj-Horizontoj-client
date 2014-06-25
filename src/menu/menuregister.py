@@ -60,6 +60,14 @@ class registerControl(gui.Table):
             g.gameState = MENU_LOGIN
 
         self.tr()
+        self.td(gui.Spacer(0, 100))
+        self.tr()
+        self.td(gui.Label('Bonvolu, ne uzas vian ordinaran pasvorton-', color=(255, 255, 255), font=HAPPY_FONT_TIME))
+        self.tr()
+        self.td(gui.Label('Pasvortoj ne estas ĉifrita nuntempe! :(', color=(255, 255, 255), font=HAPPY_FONT_TIME))
+        self.tr()
+        self.td(gui.Spacer(0, 5))
+        self.tr()
         self.td(gui.Label('Salutnomo:', color=(255, 255, 255), font=HAPPY_FONT_TIME))
         self.tr()
         self.td(gui.Input(name="username", value="Salutnomo", font=HAPPY_FONT_TIME))
@@ -68,7 +76,7 @@ class registerControl(gui.Table):
         self.td(gui.Spacer(0, 20))
 
         self.tr()
-        self.td(gui.Label('Pasvorto:', color=(255, 255, 255)))
+        self.td(gui.Label('Pasvorto:', color=(255, 255, 255), font=HAPPY_FONT_TIME))
         self.tr()
         self.td(gui.Password(name="password", value=""), font=HAPPY_FONT_TIME)
 
@@ -76,7 +84,7 @@ class registerControl(gui.Table):
         self.td(gui.Spacer(0, 10))
 
         self.tr()
-        self.td(gui.Label('Konfirmi pasvorto:', color=(255, 255, 255)))
+        self.td(gui.Label('Konfirmi pasvorto:', color=(255, 255, 255), font=HAPPY_FONT_TIME))
         self.tr()
         self.td(gui.Password(name="passwordConfirm", value=""), font=HAPPY_FONT_TIME)
 

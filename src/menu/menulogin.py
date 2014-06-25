@@ -31,6 +31,9 @@ class loginControl(gui.Table):
         self.td(gui.Input(name="username", value=_("Salutnomo"), font=HAPPY_FONT_TIME))
 
         self.tr()
+        self.td(gui.Spacer(0, 5))
+
+        self.tr()
         self.td(gui.Password(name="password", value=""), font=HAPPY_FONT_TIME)
 
         self.tr()
